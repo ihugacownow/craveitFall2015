@@ -1,2 +1,4 @@
 pod ‘GoogleMaps’
+pod 'LayerKit'
 xcodeproj ‘craveit.xcodeproj’
+
