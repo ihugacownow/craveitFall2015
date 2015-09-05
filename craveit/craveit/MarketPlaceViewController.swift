@@ -9,9 +9,9 @@
 import UIKit
 import Parse
 
-class MarketPlaceViewController: UIViewController, UITableViewDataSource {
+class MarketPlaceViewController: UIViewController {
     
-    var tableDataSource: [AnyObject]?
+    var tableDataSource = [PFObject]()
     var serverMan = AppDelegate.Location.ServerMan
     
     // This is a hack 
@@ -23,6 +23,7 @@ class MarketPlaceViewController: UIViewController, UITableViewDataSource {
         self.clock = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "refreshListOfRequests", userInfo: nil, repeats: true)
 
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,26 +32,63 @@ class MarketPlaceViewController: UIViewController, UITableViewDataSource {
     }
     
     func refreshListOfRequests() {
-        tableDataSource = serverMan.fetchAllRequestsSortedByLocation()
+        if serverMan.fetchAllRequestsSortedByLocation() == nil {
+            tableDataSource = [PFObject]()
+        } else {
+            tableDataSource = serverMan.fetchAllRequestsSortedByLocation()!
+        }
     }
     
 // MARK -- TABLE VIEW METHOD AKASH
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableDataSource == nil {
-            return 0
-        } else {
-            return tableDataSource!.count
-        }
-        
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    {
-        let cell = UITableViewCell()
-        return cell
-        
-    }
+//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        // Return the number of sections.
+//        return 1
+//    }
+//
+//    
+//    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        
+//        let cell = tableView.dequeueReusableCellWithIdentifier(
+//            "resultCell", forIndexPath: indexPath) as! UITableViewCell
+//        
+//        // Configure the cell...
+//        cell.textLabel!.font = UIFont.systemFontOfSize(14)
+//        cell.textLabel!.numberOfLines = 0
+//        
+//        let row = indexPath.row
+//        
+//        let item = matchingAddresses[row]
+//        cell.textLabel!.text = item
+//        //        tableHeight += cell.frame.size.height
+//        //        println(tableHeight)
+//        //        resultsTableViewHeightConstraint.constant = tableHeight
+//        let selectedView = UIView()
+//        selectedView.backgroundColor = UIColor(red: 241, green: 196, blue: 15)
+//        cell.selectedBackgroundView = selectedView
+//        
+//        
+//        
+//        return cell
+//    }
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return tableDataSource.count
+//    }
+//    
+//    
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//        let row = indexPath.row
+//        selectedRow = row
+//        let item = matchingAddresses[row]
+//        println(item)
+//        destinationFormattedAddress = item
+//        destinationLatitude = self.mapTasks.fetchedAddressLatitudeList[row]
+//        // println("\(destinationLatitude)")
+//        destinationLongitude = self.mapTasks.fetchedAddressLongitudeList[row]
+//        
+//    }
   
     
     
