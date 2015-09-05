@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		440B8DFB1B9A75C2003959C0 /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8DFA1B9A75C2003959C0 /* WindowsAzureMobileServices.framework */; };
 		44AF47A71B9A704A00E14AF8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AF47A61B9A704A00E14AF8 /* Parse.framework */; };
 		68E1857435C7F25FEFEE4211 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 958D95483DE94E53BFC7F227 /* libPods.a */; };
 		984CA3191B96A49B00575850 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984CA3181B96A49B00575850 /* MainPageViewController.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		28D075624F406380F8BDFC01 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		440B8DFA1B9A75C2003959C0 /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
 		44AF47A61B9A704A00E14AF8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		958D95483DE94E53BFC7F227 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		984CA3181B96A49B00575850 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				98592DEE1B9A2A0B00438464 /* OpenGLES.framework in Frameworks */,
 				98592DEF1B9A2A0B00438464 /* QuartzCore.framework in Frameworks */,
 				98592DF01B9A2A0B00438464 /* SystemConfiguration.framework in Frameworks */,
+				440B8DFB1B9A75C2003959C0 /* WindowsAzureMobileServices.framework in Frameworks */,
 				68E1857435C7F25FEFEE4211 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,8 +225,8 @@
 		E1D6A1DBFD0CBE47973BF8C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				440B8DFA1B9A75C2003959C0 /* WindowsAzureMobileServices.framework */,
 				44AF47A61B9A704A00E14AF8 /* Parse.framework */,
-				98592DF11B9A6E2400438464 /* WindowsAzureMobileServices.framework */,
 				98592DD91B9A2A0B00438464 /* AVFoundation.framework */,
 				98592DDA1B9A2A0B00438464 /* CoreData.framework */,
 				98592DDB1B9A2A0B00438464 /* CoreLocation.framework */,
