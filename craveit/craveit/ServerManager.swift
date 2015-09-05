@@ -92,6 +92,78 @@ class ServerManager: NSObject {
     }
     
 
+    // Fetch Chat Messages 
+    func loadLocalChat(chats: [AnyObject], chatTable: UITableView) {
+        
+        var chatData = chats
+        let query = PFQuery(className: "Messages")
+        
+        query.orderByAscending("createdAt")
+        query.findObjectsInBackgroundWithBlock { (results, error) -> Void in
+            if error == nil {
+                chatData.removeAll(keepCapacity: false)
+                chatTable.reloadData()
+            } else {
+                println(error!.userInfo)
+            }
+        }
+       
+        query.orderByAscending("createdAt")
+        
+        var totalNumberOfEntries = 0
+        query.countObjectsInBackgroundWithBlock{ (numberOfEntries, error) -> Void in
+            if error == nil {
+                println("currently \(numberOf) entries")
+                totalNumberOfEntries = numb
+            } else {
+                println(error!.userInfo)
+            }
+        }
+
+        __block int totalNumberOfEntries = 0;
+        [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        if (!error) {
+        // The count request succeeded. Log the count
+        NSLog(@"There are currently %d entries", number);
+        totalNumberOfEntries = number;
+        if (totalNumberOfEntries > [chatData count]) {
+        NSLog(@"Retrieving data");
+        int theLimit;
+        if (totalNumberOfEntries-[chatData count]>MAX_ENTRIES_LOADED) {
+        theLimit = MAX_ENTRIES_LOADED;
+        }
+        else {
+        theLimit = totalNumberOfEntries-[chatData count];
+        }
+        query.limit = [NSNumber numberWithInt:theLimit];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+        // The find succeeded.
+        NSLog(@"Successfully retrieved %d chats.", objects.count);
+        [chatData addObjectsFromArray:objects];
+        NSMutableArray *insertIndexPaths = [[NSMutableArray alloc] init];
+        for (int ind = 0; ind < objects.count; ind++) {
+        NSIndexPath *newPath = [NSIndexPath indexPathForRow:ind inSection:0];
+        [insertIndexPaths addObject:newPath];
+        }
+        [chatTable beginUpdates];
+        [chatTable insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationTop];
+        [chatTable endUpdates];
+        [chatTable reloadData];
+        [chatTable scrollsToTop];
+        } else {
+        // Log details of the failure
+        NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+        }];
+        }
+        
+        } else {
+        // The request failed, we'll keep the chatData count?
+        number = [chatData count];
+        }
+        }];
+    }
     
     
     
