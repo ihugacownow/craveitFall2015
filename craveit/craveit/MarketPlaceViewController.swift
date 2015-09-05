@@ -45,7 +45,10 @@ class MarketPlaceViewController: UIViewController, UITableViewDataSource {
         
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        let cell = UITableViewCell()
+        return cell
         
     }
   
