@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44AF47A71B9A704A00E14AF8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AF47A61B9A704A00E14AF8 /* Parse.framework */; };
 		68E1857435C7F25FEFEE4211 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 958D95483DE94E53BFC7F227 /* libPods.a */; };
 		984CA3191B96A49B00575850 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984CA3181B96A49B00575850 /* MainPageViewController.swift */; };
 		984CA31B1B96A4E400575850 /* MarketPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984CA31A1B96A4E400575850 /* MarketPlaceViewController.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		28D075624F406380F8BDFC01 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		44AF47A61B9A704A00E14AF8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		958D95483DE94E53BFC7F227 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		984CA3181B96A49B00575850 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		984CA31A1B96A4E400575850 /* MarketPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketPlaceViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				98592DE51B9A2A0B00438464 /* AVFoundation.framework in Frameworks */,
 				98592DE61B9A2A0B00438464 /* CoreData.framework in Frameworks */,
 				98592DE71B9A2A0B00438464 /* CoreLocation.framework in Frameworks */,
+				44AF47A71B9A704A00E14AF8 /* Parse.framework in Frameworks */,
 				98592DE81B9A2A0B00438464 /* CoreText.framework in Frameworks */,
 				98592DE91B9A2A0B00438464 /* GLKit.framework in Frameworks */,
 				98592DEA1B9A2A0B00438464 /* ImageIO.framework in Frameworks */,
@@ -219,6 +222,7 @@
 		E1D6A1DBFD0CBE47973BF8C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				44AF47A61B9A704A00E14AF8 /* Parse.framework */,
 				98592DF11B9A6E2400438464 /* WindowsAzureMobileServices.framework */,
 				98592DD91B9A2A0B00438464 /* AVFoundation.framework */,
 				98592DDA1B9A2A0B00438464 /* CoreData.framework */,
@@ -531,6 +535,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/akashsubramanian/Downloads,
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = craveit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -547,6 +552,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/akashsubramanian/Downloads,
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = craveit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
