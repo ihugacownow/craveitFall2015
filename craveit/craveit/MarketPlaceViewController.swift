@@ -10,20 +10,22 @@ import UIKit
 import Parse
 import GoogleMaps
 
-class MarketPlaceViewController: UIViewController, UITableViewDelegate {
+class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tableDataSource = [PFObject]()
     var serverMan = AppDelegate.Location.ServerMan
     
     @IBOutlet weak var marketPlaceTableView: UITableView!
     // This is a hack 
-    var clock: NSTimer?
+//    var clock: NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         marketPlaceTableView.delegate = self
+        marketPlaceTableView.dataSource = self
        
-        self.clock = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "refreshListOfRequests", userInfo: nil, repeats: true)
+//        self.clock = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "refreshListOfRequests", userInfo: nil, repeats: true)
+        self.refreshListOfRequests()
 
         // Do any additional setup after loading the view.
         
@@ -37,6 +39,7 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate {
             tableDataSource = [PFObject]()
         } else {
             tableDataSource = serverMan.fetchAllRequestsSortedByLocation()!
+            marketPlaceTableView.reloadData()
         }
     }
     
@@ -51,7 +54,13 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(
             "marketPlaceCell", forIndexPath: indexPath) as! MarketPlaceTableViewCell
-        
+        println("cell is \(cell)")
+//        if (cell == nil) {
+//            //tableView.registerNib(UINib(nibName: "UICustomTableViewCell", bundle: nil), forCellReuseIdentifier: "UICustomTableViewCell")
+////            tableView.registerClass(MyCell.classForCoder(), forCellReuseIdentifier: "marketPlaceCell")
+//            
+//            cell = MarketPlaceTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "marketPlaceCell")
+//        }
         // Configure the cell...
         cell.textLabel!.font = UIFont.systemFontOfSize(14)
         cell.textLabel!.numberOfLines = 0
@@ -70,14 +79,26 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate {
         
         
         return cell
+        
+        
     }
     
     func populateCell(cell: MarketPlaceTableViewCell, item: PFObject) {
-        let fromGeoPoint = item["startPoint"] as! PFGeoPoint
+        let fromGeoPointObject = (item["startPoint"] as! PFObject).fetchIfNeeded()
+        
+        if fromGeoPointObject != nil {
+            let fromGeoPoint: AnyObject? = fromGeoPointObject!["startLocation"]
+        }
+
         let fromPointCoordinates = CLLocationCoordinate2DMake(fromGeoPoint.latitude, fromGeoPoint.longitude)
         let fromAddress = reverseGeocodeCoordinate(fromPointCoordinates)
         cell.fromAddressLabel.text = fromAddress
-        let toGeoPoint = item["endPoint"] as! PFGeoPoint
+        
+        let toGeoPointObject = item["endPoint"] as! PFObject
+        
+        let toGeoPoint = toGeoPointObject["endPoint"] as! PFGeoPoint
+        
+        
         let toPointCoordinates = CLLocationCoordinate2DMake(toGeoPoint.latitude, toGeoPoint.longitude)
         let toAddress = reverseGeocodeCoordinate(toPointCoordinates)
         cell.toAddressLabel.text = toAddress
