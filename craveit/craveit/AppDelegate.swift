@@ -10,6 +10,10 @@ import UIKit
 import CoreData
 import GoogleMaps
 
+//import Parse packages
+import Parse
+import Bolts
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject:
         AnyObject]?) -> Bool {
+            
+            // [Optional] Power your app with Local Datastore. For more info, go to
+            // https://parse.com/docs/ios_guide#localdatastore/iOS
+            Parse.enableLocalDatastore()
+            
+            // Initialize Parse.
+            Parse.setApplicationId("iNoTiRs00J5w5QLHo8pEvfCOy2gjMdhCNWRhkVHG",
+                clientKey: "1zBY9EHbdRZ8QDFvYjDEBgamCB5d2OdBMt16TUhK")
+            
+            // [Optional] Track statistics around application opens.
+            PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
             
             GMSServices.provideAPIKey(googleMapsApiKey)
             return true

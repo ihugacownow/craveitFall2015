@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		440B8DFE1B9A7B02003959C0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8DFD1B9A7B02003959C0 /* AudioToolbox.framework */; };
+		440B8E001B9A7B0B003959C0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8DFF1B9A7B0B003959C0 /* CFNetwork.framework */; };
+		440B8E021B9A7B20003959C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8E011B9A7B20003959C0 /* CoreGraphics.framework */; };
+		440B8E041B9A7B6A003959C0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8E031B9A7B6A003959C0 /* Security.framework */; };
+		440B8E061B9A7B71003959C0 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8E051B9A7B71003959C0 /* StoreKit.framework */; };
+		440B8E081B9A7B7E003959C0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8E071B9A7B7E003959C0 /* libsqlite3.dylib */; };
+		440B8E0A1B9A8523003959C0 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8E091B9A8523003959C0 /* Accounts.framework */; };
+		440B8E0C1B9A852A003959C0 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8E0B1B9A852A003959C0 /* Social.framework */; };
+		440B8E0E1B9A8676003959C0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8E0D1B9A8676003959C0 /* Bolts.framework */; };
 		44AF47A71B9A704A00E14AF8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AF47A61B9A704A00E14AF8 /* Parse.framework */; };
-		68E1857435C7F25FEFEE4211 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 958D95483DE94E53BFC7F227 /* libPods.a */; };
 		984CA3191B96A49B00575850 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984CA3181B96A49B00575850 /* MainPageViewController.swift */; };
 		984CA31B1B96A4E400575850 /* MarketPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984CA31A1B96A4E400575850 /* MarketPlaceViewController.swift */; };
 		984CA31D1B96A51700575850 /* CreateRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984CA31C1B96A51700575850 /* CreateRequestViewController.swift */; };
@@ -29,7 +37,6 @@
 		98592DEE1B9A2A0B00438464 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98592DE21B9A2A0B00438464 /* OpenGLES.framework */; };
 		98592DEF1B9A2A0B00438464 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98592DE31B9A2A0B00438464 /* QuartzCore.framework */; };
 		98592DF01B9A2A0B00438464 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98592DE41B9A2A0B00438464 /* SystemConfiguration.framework */; };
-		98592DF41B9A6FE300438464 /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98592DF31B9A6FE300438464 /* WindowsAzureMobileServices.framework */; };
 		9899EDCB1B969C950077606D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9899EDCA1B969C950077606D /* AppDelegate.swift */; };
 		9899EDCE1B969C950077606D /* craveit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9899EDCC1B969C950077606D /* craveit.xcdatamodeld */; };
 		9899EDD31B969C950077606D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9899EDD11B969C950077606D /* Main.storyboard */; };
@@ -51,6 +58,15 @@
 /* Begin PBXFileReference section */
 		28D075624F406380F8BDFC01 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		440B8DFC1B9A7723003959C0 /* craveit-bridging-header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "craveit-bridging-header.h"; sourceTree = SOURCE_ROOT; };
+		440B8DFD1B9A7B02003959C0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		440B8DFF1B9A7B0B003959C0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		440B8E011B9A7B20003959C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		440B8E031B9A7B6A003959C0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		440B8E051B9A7B71003959C0 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		440B8E071B9A7B7E003959C0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		440B8E091B9A8523003959C0 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		440B8E0B1B9A852A003959C0 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		440B8E0D1B9A8676003959C0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		44AF47A61B9A704A00E14AF8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		958D95483DE94E53BFC7F227 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		984CA3181B96A49B00575850 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +90,6 @@
 		98592DE21B9A2A0B00438464 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		98592DE31B9A2A0B00438464 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		98592DE41B9A2A0B00438464 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		98592DF31B9A6FE300438464 /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
 		9899EDC51B969C950077606D /* craveit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = craveit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9899EDC91B969C950077606D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9899EDCA1B969C950077606D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,10 +108,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98592DF41B9A6FE300438464 /* WindowsAzureMobileServices.framework in Frameworks */,
+				440B8E0C1B9A852A003959C0 /* Social.framework in Frameworks */,
+				440B8E0A1B9A8523003959C0 /* Accounts.framework in Frameworks */,
+				440B8E081B9A7B7E003959C0 /* libsqlite3.dylib in Frameworks */,
+				440B8E061B9A7B71003959C0 /* StoreKit.framework in Frameworks */,
+				440B8E041B9A7B6A003959C0 /* Security.framework in Frameworks */,
+				98592DEF1B9A2A0B00438464 /* QuartzCore.framework in Frameworks */,
+				98592DE71B9A2A0B00438464 /* CoreLocation.framework in Frameworks */,
+				440B8E021B9A7B20003959C0 /* CoreGraphics.framework in Frameworks */,
+				440B8E001B9A7B0B003959C0 /* CFNetwork.framework in Frameworks */,
+				440B8DFE1B9A7B02003959C0 /* AudioToolbox.framework in Frameworks */,
 				98592DE51B9A2A0B00438464 /* AVFoundation.framework in Frameworks */,
 				98592DE61B9A2A0B00438464 /* CoreData.framework in Frameworks */,
-				98592DE71B9A2A0B00438464 /* CoreLocation.framework in Frameworks */,
 				44AF47A71B9A704A00E14AF8 /* Parse.framework in Frameworks */,
 				98592DE81B9A2A0B00438464 /* CoreText.framework in Frameworks */,
 				98592DE91B9A2A0B00438464 /* GLKit.framework in Frameworks */,
@@ -104,10 +127,9 @@
 				98592DEB1B9A2A0B00438464 /* libc++.dylib in Frameworks */,
 				98592DEC1B9A2A0B00438464 /* libicucore.dylib in Frameworks */,
 				98592DED1B9A2A0B00438464 /* libz.dylib in Frameworks */,
+				440B8E0E1B9A8676003959C0 /* Bolts.framework in Frameworks */,
 				98592DEE1B9A2A0B00438464 /* OpenGLES.framework in Frameworks */,
-				98592DEF1B9A2A0B00438464 /* QuartzCore.framework in Frameworks */,
 				98592DF01B9A2A0B00438464 /* SystemConfiguration.framework in Frameworks */,
-				68E1857435C7F25FEFEE4211 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +246,15 @@
 		E1D6A1DBFD0CBE47973BF8C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				440B8E0D1B9A8676003959C0 /* Bolts.framework */,
+				440B8E0B1B9A852A003959C0 /* Social.framework */,
+				440B8E091B9A8523003959C0 /* Accounts.framework */,
+				440B8E071B9A7B7E003959C0 /* libsqlite3.dylib */,
+				440B8E051B9A7B71003959C0 /* StoreKit.framework */,
+				440B8E031B9A7B6A003959C0 /* Security.framework */,
+				440B8E011B9A7B20003959C0 /* CoreGraphics.framework */,
+				440B8DFF1B9A7B0B003959C0 /* CFNetwork.framework */,
+				440B8DFD1B9A7B02003959C0 /* AudioToolbox.framework */,
 				44AF47A61B9A704A00E14AF8 /* Parse.framework */,
 				98592DD91B9A2A0B00438464 /* AVFoundation.framework */,
 				98592DDA1B9A2A0B00438464 /* CoreData.framework */,
