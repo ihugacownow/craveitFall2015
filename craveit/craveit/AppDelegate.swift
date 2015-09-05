@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     struct Location {
         static let Manager = CLLocationManager()
         static let ServerMan = ServerManager()
-        static var currentUser: User?
+        static var currentUser: PFUser?
         static var loggedInUser: PFUser?
     }
     
@@ -50,16 +50,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             
             
             //Login Logic 
-            var currentUser = PFUser.currentUser()
+            Location.currentUser = PFUser.currentUser()
             
-            if currentUser != nil {
+            
+            if Location.currentUser != nil {
+                println("User name is \(Location.currentUser!.username)")
                 var storyboard = UIStoryboard(name: "Main", bundle: nil)
                 window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("mainPage") as? UIViewController
                 // Akash show the main map page
                 //Location.currentUser = User(nam: currentUser?.username, objID: currentUser?.objectId)
-                Location.loggedInUser = currentUser
             } else {
-                
                 // Akash show the signup or login screen
                  var storyboard = UIStoryboard(name: "Main", bundle: nil)
                 window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("logIn") as? UIViewController
