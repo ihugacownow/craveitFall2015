@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0422F84B2B5451293AFE44E1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC8B5B9C28A65136A9C0094 /* libPods.a */; };
 		440B8DFE1B9A7B02003959C0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8DFD1B9A7B02003959C0 /* AudioToolbox.framework */; };
 		440B8E001B9A7B0B003959C0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8DFF1B9A7B0B003959C0 /* CFNetwork.framework */; };
 		440B8E021B9A7B20003959C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8E011B9A7B20003959C0 /* CoreGraphics.framework */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1DC8B5B9C28A65136A9C0094 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		28D075624F406380F8BDFC01 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		440B8DFC1B9A7723003959C0 /* craveit-bridging-header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "craveit-bridging-header.h"; sourceTree = SOURCE_ROOT; };
 		440B8DFD1B9A7B02003959C0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -68,7 +70,6 @@
 		440B8E0B1B9A852A003959C0 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		440B8E0D1B9A8676003959C0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		44AF47A61B9A704A00E14AF8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		958D95483DE94E53BFC7F227 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		984CA3181B96A49B00575850 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		984CA31A1B96A4E400575850 /* MarketPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketPlaceViewController.swift; sourceTree = "<group>"; };
 		984CA31C1B96A51700575850 /* CreateRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRequestViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +131,7 @@
 				440B8E0E1B9A8676003959C0 /* Bolts.framework in Frameworks */,
 				98592DEE1B9A2A0B00438464 /* OpenGLES.framework in Frameworks */,
 				98592DF01B9A2A0B00438464 /* SystemConfiguration.framework in Frameworks */,
+				0422F84B2B5451293AFE44E1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +270,7 @@
 				98592DE21B9A2A0B00438464 /* OpenGLES.framework */,
 				98592DE31B9A2A0B00438464 /* QuartzCore.framework */,
 				98592DE41B9A2A0B00438464 /* SystemConfiguration.framework */,
-				958D95483DE94E53BFC7F227 /* libPods.a */,
+				1DC8B5B9C28A65136A9C0094 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
