@@ -28,6 +28,7 @@
 		98592DEE1B9A2A0B00438464 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98592DE21B9A2A0B00438464 /* OpenGLES.framework */; };
 		98592DEF1B9A2A0B00438464 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98592DE31B9A2A0B00438464 /* QuartzCore.framework */; };
 		98592DF01B9A2A0B00438464 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98592DE41B9A2A0B00438464 /* SystemConfiguration.framework */; };
+		98592DF21B9A6E2400438464 /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98592DF11B9A6E2400438464 /* WindowsAzureMobileServices.framework */; };
 		9899EDCB1B969C950077606D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9899EDCA1B969C950077606D /* AppDelegate.swift */; };
 		9899EDCE1B969C950077606D /* craveit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9899EDCC1B969C950077606D /* craveit.xcdatamodeld */; };
 		9899EDD31B969C950077606D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9899EDD11B969C950077606D /* Main.storyboard */; };
@@ -70,6 +71,7 @@
 		98592DE21B9A2A0B00438464 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		98592DE31B9A2A0B00438464 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		98592DE41B9A2A0B00438464 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		98592DF11B9A6E2400438464 /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WindowsAzureMobileServices.framework; path = ../../Downloads/WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
 		9899EDC51B969C950077606D /* craveit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = craveit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9899EDC91B969C950077606D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9899EDCA1B969C950077606D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98592DF21B9A6E2400438464 /* WindowsAzureMobileServices.framework in Frameworks */,
 				98592DE51B9A2A0B00438464 /* AVFoundation.framework in Frameworks */,
 				98592DE61B9A2A0B00438464 /* CoreData.framework in Frameworks */,
 				98592DE71B9A2A0B00438464 /* CoreLocation.framework in Frameworks */,
@@ -216,6 +219,7 @@
 		E1D6A1DBFD0CBE47973BF8C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				98592DF11B9A6E2400438464 /* WindowsAzureMobileServices.framework */,
 				98592DD91B9A2A0B00438464 /* AVFoundation.framework */,
 				98592DDA1B9A2A0B00438464 /* CoreData.framework */,
 				98592DDB1B9A2A0B00438464 /* CoreLocation.framework */,
@@ -524,6 +528,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/akashsubramanian/Downloads,
+				);
 				INFOPLIST_FILE = craveit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -536,6 +544,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/akashsubramanian/Downloads,
+				);
 				INFOPLIST_FILE = craveit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
