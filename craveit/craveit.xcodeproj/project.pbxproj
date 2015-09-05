@@ -10,6 +10,7 @@
 		0422F84B2B5451293AFE44E1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC8B5B9C28A65136A9C0094 /* libPods.a */; };
 		180044D31B9B7A7900AF78FC /* loginBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 180044D11B9B7A7900AF78FC /* loginBackground@2x.png */; };
 		180044D41B9B7A7900AF78FC /* loginBackground@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 180044D21B9B7A7900AF78FC /* loginBackground@3x.png */; };
+		180044D61B9B8EF100AF78FC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180044D51B9B8EF100AF78FC /* BaseViewController.swift */; };
 		1823FBA01B9ABE3A00DD78E7 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823FB9F1B9ABE3A00DD78E7 /* ServerManager.swift */; };
 		1823FBA71B9AC95E00DD78E7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823FBA61B9AC95E00DD78E7 /* User.swift */; };
 		440B8DFE1B9A7B02003959C0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8DFD1B9A7B02003959C0 /* AudioToolbox.framework */; };
@@ -45,6 +46,8 @@
 		98592DF91B9B0BC000438464 /* MapTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98592DF81B9B0BC000438464 /* MapTasks.swift */; };
 		98592DFB1B9B0C3D00438464 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98592DFA1B9B0C3D00438464 /* SearchResultsTableViewController.swift */; };
 		98592DFD1B9B409900438464 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98592DFC1B9B409900438464 /* SuccessViewController.swift */; };
+		98592DFF1B9B8B3E00438464 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98592DFE1B9B8B3E00438464 /* SignUpViewController.swift */; };
+		98592E011B9BA1CB00438464 /* MarketPlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98592E001B9BA1CB00438464 /* MarketPlaceTableViewCell.swift */; };
 		9899EDCB1B969C950077606D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9899EDCA1B969C950077606D /* AppDelegate.swift */; };
 		9899EDCE1B969C950077606D /* craveit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9899EDCC1B969C950077606D /* craveit.xcdatamodeld */; };
 		9899EDD31B969C950077606D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9899EDD11B969C950077606D /* Main.storyboard */; };
@@ -66,6 +69,7 @@
 /* Begin PBXFileReference section */
 		180044D11B9B7A7900AF78FC /* loginBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground@2x.png"; sourceTree = "<group>"; };
 		180044D21B9B7A7900AF78FC /* loginBackground@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground@3x.png"; sourceTree = "<group>"; };
+		180044D51B9B8EF100AF78FC /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1823FB9F1B9ABE3A00DD78E7 /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		1823FBA61B9AC95E00DD78E7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1DC8B5B9C28A65136A9C0094 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +108,8 @@
 		98592DF81B9B0BC000438464 /* MapTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTasks.swift; sourceTree = "<group>"; };
 		98592DFA1B9B0C3D00438464 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		98592DFC1B9B409900438464 /* SuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
+		98592DFE1B9B8B3E00438464 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		98592E001B9BA1CB00438464 /* MarketPlaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketPlaceTableViewCell.swift; sourceTree = "<group>"; };
 		9899EDC51B969C950077606D /* craveit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = craveit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9899EDC91B969C950077606D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9899EDCA1B969C950077606D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +178,7 @@
 			children = (
 				1823FB9F1B9ABE3A00DD78E7 /* ServerManager.swift */,
 				1823FBA61B9AC95E00DD78E7 /* User.swift */,
+				180044D51B9B8EF100AF78FC /* BaseViewController.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -183,6 +190,7 @@
 				984CA31C1B96A51700575850 /* CreateRequestViewController.swift */,
 				98592DFA1B9B0C3D00438464 /* SearchResultsTableViewController.swift */,
 				98592DFC1B9B409900438464 /* SuccessViewController.swift */,
+				98592E001B9BA1CB00438464 /* MarketPlaceTableViewCell.swift */,
 			);
 			name = market;
 			sourceTree = "<group>";
@@ -201,6 +209,7 @@
 				984CA31E1B96A53C00575850 /* SignInViewController.swift */,
 				984CA3201B96A55A00575850 /* RequestDashboardViewController.swift */,
 				984CA3261B96A5F500575850 /* RegistrationViewController.swift */,
+				98592DFE1B9B8B3E00438464 /* SignUpViewController.swift */,
 			);
 			name = profile;
 			sourceTree = "<group>";
@@ -482,9 +491,12 @@
 				9899EDCE1B969C950077606D /* craveit.xcdatamodeld in Sources */,
 				9899EDCB1B969C950077606D /* AppDelegate.swift in Sources */,
 				1823FBA71B9AC95E00DD78E7 /* User.swift in Sources */,
+				98592DFF1B9B8B3E00438464 /* SignUpViewController.swift in Sources */,
 				984CA3231B96A57C00575850 /* ChatViewController.swift in Sources */,
+				98592E011B9BA1CB00438464 /* MarketPlaceTableViewCell.swift in Sources */,
 				984CA3211B96A55A00575850 /* RequestDashboardViewController.swift in Sources */,
 				98592DFB1B9B0C3D00438464 /* SearchResultsTableViewController.swift in Sources */,
+				180044D61B9B8EF100AF78FC /* BaseViewController.swift in Sources */,
 				98592DFD1B9B409900438464 /* SuccessViewController.swift in Sources */,
 				1823FBA01B9ABE3A00DD78E7 /* ServerManager.swift in Sources */,
 			);

@@ -9,18 +9,29 @@
 import UIKit
 import Parse
 
-class SignInViewController: UIViewController {
+class SignInViewController: BaseViewController {
 
     let serverMan = AppDelegate.Location.ServerMan
     
     // WC Testing stuff
-    var randomNumber = 0
+    var randomNumber: Int = 0
     
-    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBAction func resignusername(sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func resignPassword(sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    @IBOutlet weak var usernameTextField: UITextField!
+    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -31,22 +42,19 @@ class SignInViewController: UIViewController {
     }
     
     // Akash drag the sign up botton here and edit func
-    @IBAction func signUp() {
-        let image = UIImage(named: "waichoong")
-        let photoData = UIImageJPEGRepresentation(image, 0.500)
-        
-        // Just for testing
-        randomNumber = randomNumber + 1
-        
-        serverMan.signUp("username", password: "ilovewaichoong\(randomNumber)", email: "waichoong\(randomNumber)@gmail.com", photoData: photoData)
-    }
+  
     
     // Akash
     @IBAction func logIn() {
-        PFUser.logInWithUsernameInBackground("myname", password:"mypass") {
+        PFUser.logInWithUsernameInBackground(usernameTextField.text, password:passwordTextField.text) {
+            
             (user: PFUser?, error: NSError?) -> Void in
+            println("username is \(self.usernameTextField.text) and password is \(self.passwordTextField.text)")
             if user != nil {
+                AppDelegate.Location.currentUser = user 
                 // Akash segue to next vc
+                self.performSegueWithIdentifier("signedIn", sender: nil)
+                
             } else {
                 // Akash print to UIView
             }
