@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import Parse
 
 class MainPageViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate
 {
@@ -16,15 +17,18 @@ class MainPageViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
     @IBOutlet weak var mapView: GMSMapView!
     
     let manager = AppDelegate.Location.Manager
-    let serverMan = ServerManager()
+    let serverMan = AppDelegate.Location.ServerMan
+
     
     @IBAction func testServer() {
         println("Pressing test server")
         let location = CLLocationCoordinate2D(latitude: 1.0, longitude: 1.0)
         let user = User()
         let money: CGFloat = 10.0
-        serverMan.sendRequestToServer("test", money: money, start: location, end: location, user: user)
+        serverMan.sendRequestToServer("test", money: money, start: location, end: location, user: PFUser.currentUser()!)
     }
+    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()

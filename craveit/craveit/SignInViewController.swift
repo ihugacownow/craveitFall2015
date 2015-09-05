@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import Parse
 
 class SignInViewController: UIViewController {
 
+    let serverMan = AppDelegate.Location.ServerMan
+    
+    // WC Testing stuff
+    var randomNumber = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +26,39 @@ class SignInViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // Akash drag the sign up botton here and edit func
+    @IBAction func signUp() {
+        let image = UIImage(named: "waichoong")
+        let photoData = UIImageJPEGRepresentation(image, 0.500)
+        
+        // Just for testing
+        randomNumber = randomNumber + 1
+        
+        serverMan.signUp("username", password: "ilovewaichoong\(randomNumber)", email: "waichoong\(randomNumber)@gmail.com", photoData: photoData)
+    }
+    
+    // Akash
+    @IBAction func logIn() {
+        PFUser.logInWithUsernameInBackground("myname", password:"mypass") {
+            (user: PFUser?, error: NSError?) -> Void in
+            if user != nil {
+                // Akash segue to next vc
+            } else {
+                // Akash print to UIView
+            }
+        }
+
+    }
+    
+    
+    // If needed in future 
+    @IBAction func logOut() {
+        PFUser.logOut()
+        println("user is now \(PFUser.currentUser())")
+    }
+    
+    
     
 
     /*

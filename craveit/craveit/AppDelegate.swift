@@ -22,8 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     var window: UIWindow?
     
+    // Akash hope im not corrupting your struc, but im seeing it more like a way of holding your global classes
     struct Location {
         static let Manager = CLLocationManager()
+        static let ServerMan = ServerManager()
+        static var currentUser: User?
     }
     
     let googleMapsApiKey = "AIzaSyBPKqF8F9XzFM_ZSP6WbirLbaJgN9vGB5I"
@@ -43,6 +46,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
             
             GMSServices.provideAPIKey(googleMapsApiKey)
+            
+            
+            //Login Logic 
+            var currentUser = PFUser.currentUser()
+            if currentUser != nil {
+                // Akash show the main map page
+            } else {
+                // Akash show the signup or login screen
+            }
+            
             return true
     }
 
