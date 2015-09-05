@@ -12,9 +12,19 @@ import GoogleMaps
 class MainPageViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate
 {
 
+    @IBOutlet var testServerButton: UIButton!
     @IBOutlet weak var mapView: GMSMapView!
-    let manager = AppDelegate.Location.Manager
     
+    let manager = AppDelegate.Location.Manager
+    let serverMan = ServerManager()
+    
+    @IBAction func testServer() {
+        println("Pressing test server")
+        let location = CLLocationCoordinate2D(latitude: 1.0, longitude: 1.0)
+        let user = User()
+        let money: CGFloat = 10.0
+        serverMan.sendRequestToServer("test", money: money, start: location, end: location, user: user)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

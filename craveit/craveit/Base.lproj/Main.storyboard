@@ -86,6 +86,15 @@
                                     <constraint firstItem="L7O-1g-FVJ" firstAttribute="centerX" secondItem="WzI-ft-AfK" secondAttribute="centerX" id="xmW-gl-EDb"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGu-lE-rNF">
+                                <rect key="frame" x="10" y="120" width="57" height="30"/>
+                                <state key="normal" title="testServ">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="testServer" destination="74u-TF-AeB" eventType="touchUpInside" id="ikc-nd-S86"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -421,7 +430,6 @@
         <!--Navigation Controller-->
         <scene sceneID="E4c-8w-2cR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="APr-Y5-4aC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="elX-Th-KzD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="I3G-cn-Lq7">
@@ -433,6 +441,7 @@
                         <segue destination="XCE-a7-qjj" kind="relationship" relationship="rootViewController" id="an9-O8-XFK"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="APr-Y5-4aC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1084" y="-916"/>
         </scene>
