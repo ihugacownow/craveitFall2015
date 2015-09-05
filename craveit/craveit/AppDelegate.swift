@@ -9,12 +9,17 @@
 import UIKit
 import CoreData
 import GoogleMaps
+import CoreLocation
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
+    
+    struct Location {
+        static let Manager = CLLocationManager()
+    }
 
     let googleMapsApiKey = "AIzaSyBPKqF8F9XzFM_ZSP6WbirLbaJgN9vGB5I"
     

@@ -7,29 +7,29 @@
 //
 
 import UIKit
+import GoogleMaps
 
-class MainPageViewController: UIViewController {
+class MainPageViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate
+{
 
+    @IBOutlet weak var mapView: GMSMapView!
+    let manager = AppDelegate.Location.Manager
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
+        manager.requestWhenInUseAuthorization()
+        mapView.myLocationEnabled = true
+        manager.startUpdatingLocation()
+        mapView.settings.myLocationButton = true
+        if let currentLocation = manager.location {
+            self.mapView.camera = GMSCameraPosition.cameraWithTarget(currentLocation.coordinate, zoom: 17.0)
+            
+        }
+        
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
