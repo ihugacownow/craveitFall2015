@@ -9,9 +9,9 @@
 import UIKit
 import Parse
 
-class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MarketPlaceViewController: UIViewController {
     
-    var tableDataSource = [AnyObject]()
+    var tableDataSource = [PFObject]()
     var serverMan = AppDelegate.Location.ServerMan
     
     // This is a hack 
@@ -32,64 +32,63 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func refreshListOfRequests() {
-        tableDataSource = serverMan.fetchAllRequestsSortedByLocation()!
+        if serverMan.fetchAllRequestsSortedByLocation() == nil {
+            tableDataSource = [PFObject]()
+        } else {
+            tableDataSource = serverMan.fetchAllRequestsSortedByLocation()!
+        }
     }
     
 // MARK -- TABLE VIEW METHOD AKASH
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // Return the number of sections.
-        return 1
-    }
-    
-    
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(
-            "resultCell", forIndexPath: indexPath) as! ResultsTableViewCell
-        
-        // Configure the cell...
-        cell.textLabel!.font = UIFont.systemFontOfSize(14)
-        cell.textLabel!.numberOfLines = 0
-        
-        let row = indexPath.row
-        
-        let item = matchingAddresses[row]
-        cell.textLabel!.text = item
-        //        tableHeight += cell.frame.size.height
-        //        println(tableHeight)
-        //        resultsTableViewHeightConstraint.constant = tableHeight
-        let selectedView = UIView()
-        selectedView.backgroundColor = UIColor(red: 241, green: 196, blue: 15)
-        cell.selectedBackgroundView = selectedView
-        
-        
-        
-        return cell
-    }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of rows in the section.
-        println(matchingAddresses.count)
-        //resultsTableViewHeightConstraint.constant = CGFloat(50 * matchingAddresses.count)
-        //mapResultsTableView.contentSize = preferredContentSize
-        
-        return matchingAddresses.count
-    }
-    
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let row = indexPath.row
-        selectedRow = row
-        let item = matchingAddresses[row]
-        println(item)
-        destinationFormattedAddress = item
-        destinationLatitude = self.mapTasks.fetchedAddressLatitudeList[row]
-        // println("\(destinationLatitude)")
-        destinationLongitude = self.mapTasks.fetchedAddressLongitudeList[row]
-        
-    }
+//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        // Return the number of sections.
+//        return 1
+//    }
+//
+//    
+//    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        
+//        let cell = tableView.dequeueReusableCellWithIdentifier(
+//            "resultCell", forIndexPath: indexPath) as! UITableViewCell
+//        
+//        // Configure the cell...
+//        cell.textLabel!.font = UIFont.systemFontOfSize(14)
+//        cell.textLabel!.numberOfLines = 0
+//        
+//        let row = indexPath.row
+//        
+//        let item = matchingAddresses[row]
+//        cell.textLabel!.text = item
+//        //        tableHeight += cell.frame.size.height
+//        //        println(tableHeight)
+//        //        resultsTableViewHeightConstraint.constant = tableHeight
+//        let selectedView = UIView()
+//        selectedView.backgroundColor = UIColor(red: 241, green: 196, blue: 15)
+//        cell.selectedBackgroundView = selectedView
+//        
+//        
+//        
+//        return cell
+//    }
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return tableDataSource.count
+//    }
+//    
+//    
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//        let row = indexPath.row
+//        selectedRow = row
+//        let item = matchingAddresses[row]
+//        println(item)
+//        destinationFormattedAddress = item
+//        destinationLatitude = self.mapTasks.fetchedAddressLatitudeList[row]
+//        // println("\(destinationLatitude)")
+//        destinationLongitude = self.mapTasks.fetchedAddressLongitudeList[row]
+//        
+//    }
   
     
     

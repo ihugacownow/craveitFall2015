@@ -67,20 +67,21 @@ class ServerManager: NSObject {
     // Vicky check out https://parse.com/docs/ios/guide#queries.
     
     // Fetching all records  --> to show in marketplace --> Should show only those which are not marked completed
-    func fetchAllRequests() -> [AnyObject]? {
+    func fetchAllRequests() -> [PFObject]? {
         let query = PFQuery(className: "Request")
         query.whereKey("isCompleted", equalTo: false)
         let results = query.findObjects()
-        return results
+        
+        return results as! [PFObject]?
     }
     
     // To Do: 
     // Sort records (not sure if need to do during server fetch or do later when populating table)
-    func fetchAllRequestsSortedByLocation() -> [AnyObject]? {
+    func fetchAllRequestsSortedByLocation() -> [PFObject]? {
         let query = PFQuery(className: "Request")
         query.whereKey("isCompleted", equalTo: false)
         let results = query.findObjects()
-        return results
+        return results as! [PFObject]?
     }
     
     // To populate admin dashboard 

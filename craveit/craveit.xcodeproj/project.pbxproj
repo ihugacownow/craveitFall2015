@@ -45,6 +45,7 @@
 		98592DF91B9B0BC000438464 /* MapTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98592DF81B9B0BC000438464 /* MapTasks.swift */; };
 		98592DFB1B9B0C3D00438464 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98592DFA1B9B0C3D00438464 /* SearchResultsTableViewController.swift */; };
 		98592DFD1B9B409900438464 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98592DFC1B9B409900438464 /* SuccessViewController.swift */; };
+		98592DFF1B9B8B3E00438464 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98592DFE1B9B8B3E00438464 /* SignUpViewController.swift */; };
 		9899EDCB1B969C950077606D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9899EDCA1B969C950077606D /* AppDelegate.swift */; };
 		9899EDCE1B969C950077606D /* craveit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9899EDCC1B969C950077606D /* craveit.xcdatamodeld */; };
 		9899EDD31B969C950077606D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9899EDD11B969C950077606D /* Main.storyboard */; };
@@ -104,6 +105,7 @@
 		98592DF81B9B0BC000438464 /* MapTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTasks.swift; sourceTree = "<group>"; };
 		98592DFA1B9B0C3D00438464 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		98592DFC1B9B409900438464 /* SuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
+		98592DFE1B9B8B3E00438464 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9899EDC51B969C950077606D /* craveit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = craveit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9899EDC91B969C950077606D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9899EDCA1B969C950077606D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				984CA31E1B96A53C00575850 /* SignInViewController.swift */,
 				984CA3201B96A55A00575850 /* RequestDashboardViewController.swift */,
 				984CA3261B96A5F500575850 /* RegistrationViewController.swift */,
+				98592DFE1B9B8B3E00438464 /* SignUpViewController.swift */,
 			);
 			name = profile;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				9899EDCE1B969C950077606D /* craveit.xcdatamodeld in Sources */,
 				9899EDCB1B969C950077606D /* AppDelegate.swift in Sources */,
 				1823FBA71B9AC95E00DD78E7 /* User.swift in Sources */,
+				98592DFF1B9B8B3E00438464 /* SignUpViewController.swift in Sources */,
 				984CA3231B96A57C00575850 /* ChatViewController.swift in Sources */,
 				984CA3211B96A55A00575850 /* RequestDashboardViewController.swift in Sources */,
 				98592DFB1B9B0C3D00438464 /* SearchResultsTableViewController.swift in Sources */,
