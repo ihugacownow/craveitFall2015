@@ -16,6 +16,9 @@ class SignInViewController: UIViewController {
     // WC Testing stuff
     var randomNumber = 0
     
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
