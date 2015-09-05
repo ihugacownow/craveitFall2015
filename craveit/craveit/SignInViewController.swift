@@ -30,7 +30,7 @@ class SignInViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        emailTextField.delegate = self
+        usernameTextField.delegate = self
         passwordTextField.delegate = self
 
         // Do any additional setup after loading the view.
