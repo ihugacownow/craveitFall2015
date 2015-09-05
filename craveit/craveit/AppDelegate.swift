@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         static let Manager = CLLocationManager()
         static let ServerMan = ServerManager()
         static var currentUser: User?
+        static var loggedInUser: PFUser?
     }
     
     let googleMapsApiKey = "AIzaSyBPKqF8F9XzFM_ZSP6WbirLbaJgN9vGB5I"
@@ -50,11 +51,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             
             //Login Logic 
             var currentUser = PFUser.currentUser()
+            
             if currentUser != nil {
+                var storyboard = UIStoryboard(name: "Main", bundle: nil)
+                window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("mainPage") as? UIViewController
                 // Akash show the main map page
+                //Location.currentUser = User(nam: currentUser?.username, objID: currentUser?.objectId)
+                Location.loggedInUser = currentUser
             } else {
+                
                 // Akash show the signup or login screen
+                 var storyboard = UIStoryboard(name: "Main", bundle: nil)
+                window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("logIn") as? UIViewController
             }
+            self.window?.makeKeyAndVisible()
             
             return true
     }

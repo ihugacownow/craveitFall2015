@@ -40,6 +40,9 @@
 		98592DEE1B9A2A0B00438464 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98592DE21B9A2A0B00438464 /* OpenGLES.framework */; };
 		98592DEF1B9A2A0B00438464 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98592DE31B9A2A0B00438464 /* QuartzCore.framework */; };
 		98592DF01B9A2A0B00438464 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98592DE41B9A2A0B00438464 /* SystemConfiguration.framework */; };
+		98592DF91B9B0BC000438464 /* MapTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98592DF81B9B0BC000438464 /* MapTasks.swift */; };
+		98592DFB1B9B0C3D00438464 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98592DFA1B9B0C3D00438464 /* SearchResultsTableViewController.swift */; };
+		98592DFD1B9B409900438464 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98592DFC1B9B409900438464 /* SuccessViewController.swift */; };
 		9899EDCB1B969C950077606D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9899EDCA1B969C950077606D /* AppDelegate.swift */; };
 		9899EDCE1B969C950077606D /* craveit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9899EDCC1B969C950077606D /* craveit.xcdatamodeld */; };
 		9899EDD31B969C950077606D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9899EDD11B969C950077606D /* Main.storyboard */; };
@@ -94,6 +97,9 @@
 		98592DE21B9A2A0B00438464 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		98592DE31B9A2A0B00438464 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		98592DE41B9A2A0B00438464 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		98592DF81B9B0BC000438464 /* MapTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTasks.swift; sourceTree = "<group>"; };
+		98592DFA1B9B0C3D00438464 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
+		98592DFC1B9B409900438464 /* SuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		9899EDC51B969C950077606D /* craveit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = craveit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9899EDC91B969C950077606D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9899EDCA1B969C950077606D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +168,8 @@
 			children = (
 				984CA31A1B96A4E400575850 /* MarketPlaceViewController.swift */,
 				984CA31C1B96A51700575850 /* CreateRequestViewController.swift */,
+				98592DFA1B9B0C3D00438464 /* SearchResultsTableViewController.swift */,
+				98592DFC1B9B409900438464 /* SuccessViewController.swift */,
 			);
 			name = market;
 			sourceTree = "<group>";
@@ -193,6 +201,15 @@
 			name = chat;
 			sourceTree = "<group>";
 		};
+		98592DF51B9B0A9F00438464 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				98592DF81B9B0BC000438464 /* MapTasks.swift */,
+			);
+			name = Maps;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		9899EDBC1B969C950077606D = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +233,7 @@
 		9899EDC71B969C950077606D /* craveit */ = {
 			isa = PBXGroup;
 			children = (
+				98592DF51B9B0A9F00438464 /* Maps */,
 				984CA3171B96A46F00575850 /* chat */,
 				984CA3161B96A45000575850 /* profile */,
 				984CA3151B96A3F000575850 /* main page */,
@@ -438,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98592DF91B9B0BC000438464 /* MapTasks.swift in Sources */,
 				984CA3251B96A58B00575850 /* MessagesViewController.swift in Sources */,
 				984CA31F1B96A53C00575850 /* SignInViewController.swift in Sources */,
 				984CA3191B96A49B00575850 /* MainPageViewController.swift in Sources */,
@@ -449,6 +468,8 @@
 				1823FBA71B9AC95E00DD78E7 /* User.swift in Sources */,
 				984CA3231B96A57C00575850 /* ChatViewController.swift in Sources */,
 				984CA3211B96A55A00575850 /* RequestDashboardViewController.swift in Sources */,
+				98592DFB1B9B0C3D00438464 /* SearchResultsTableViewController.swift in Sources */,
+				98592DFD1B9B409900438464 /* SuccessViewController.swift in Sources */,
 				1823FBA01B9ABE3A00DD78E7 /* ServerManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

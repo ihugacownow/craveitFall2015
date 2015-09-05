@@ -7,29 +7,61 @@
 //
 
 import UIKit
+import CoreLocation
 
 class CreateRequestViewController: UIViewController {
 
+    @IBOutlet weak var requestTextField: UITextField!
+    
+    @IBOutlet weak var deliveryFeeTextField: UITextField!
+    
+    @IBOutlet weak var deliverFromAddressLabel: UILabel!
+    @IBOutlet weak var deliverToAddressLabel: UILabel!
+    var deliverFromAddress: String?
+    var deliverToAddress: String?
+    let serverManager = ServerManager()
+    var startCoordinates: CLLocationCoordinate2D?
+    var endCoordinates: CLLocationCoordinate2D?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        if let from = deliverFromAddress {
+            deliverFromAddressLabel.text = from
+        }
+        if let to = deliverToAddress {
+            deliverToAddressLabel.text = to
+        }
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func resignResponder(sender: UITextField) {
+        sender.resignFirstResponder()
+        requestTextField.resignFirstResponder()
+        deliveryFeeTextField.resignFirstResponder()
     }
-    */
+    
+    @IBAction func submitRequest(sender: UIButton) {
+        if let user = AppDelegate.Location.loggedInUser {
+        serverManager.sendRequestToServer(user.username!, money: CGFloat(NSNumberFormatter().numberFromString(deliveryFeeTextField.text)!.floatValue), start: startCoordinates!, end: endCoordinates!, user: user)
+            println("user is logged in!")
+        }
+        performSegueWithIdentifier("submittedRequest", sender: nil)
+    }
 
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if let identifier  = segue.identifier {
+//            switch identifier {
+//            case "submittedRequest":
+//                if let svc = segue.destinationViewController as? SuccessViewController {
+//                    
+//                }
+//            }
+//        }
+//    }
+
+    
 }

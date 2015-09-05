@@ -10,6 +10,11 @@ import UIKit
 
 class User: NSObject {
     
-    let objectID = ""
-    let name = ""
+    var objectID: String!
+    var name: String!
+    
+    init(nam: String, objID: String) {
+        objectID = objID
+        name = nam
+    }
 }
