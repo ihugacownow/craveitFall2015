@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class SignInViewController: UIViewController {
+class SignInViewController: BaseViewController {
 
     let serverMan = AppDelegate.Location.ServerMan
     
@@ -29,6 +29,9 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
 
         // Do any additional setup after loading the view.
     }

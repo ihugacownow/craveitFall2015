@@ -10,6 +10,7 @@
 		0422F84B2B5451293AFE44E1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC8B5B9C28A65136A9C0094 /* libPods.a */; };
 		180044D31B9B7A7900AF78FC /* loginBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 180044D11B9B7A7900AF78FC /* loginBackground@2x.png */; };
 		180044D41B9B7A7900AF78FC /* loginBackground@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 180044D21B9B7A7900AF78FC /* loginBackground@3x.png */; };
+		180044D61B9B8EF100AF78FC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180044D51B9B8EF100AF78FC /* BaseViewController.swift */; };
 		1823FBA01B9ABE3A00DD78E7 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823FB9F1B9ABE3A00DD78E7 /* ServerManager.swift */; };
 		1823FBA71B9AC95E00DD78E7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823FBA61B9AC95E00DD78E7 /* User.swift */; };
 		440B8DFE1B9A7B02003959C0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8DFD1B9A7B02003959C0 /* AudioToolbox.framework */; };
@@ -68,6 +69,7 @@
 /* Begin PBXFileReference section */
 		180044D11B9B7A7900AF78FC /* loginBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground@2x.png"; sourceTree = "<group>"; };
 		180044D21B9B7A7900AF78FC /* loginBackground@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground@3x.png"; sourceTree = "<group>"; };
+		180044D51B9B8EF100AF78FC /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1823FB9F1B9ABE3A00DD78E7 /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		1823FBA61B9AC95E00DD78E7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1DC8B5B9C28A65136A9C0094 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +178,7 @@
 			children = (
 				1823FB9F1B9ABE3A00DD78E7 /* ServerManager.swift */,
 				1823FBA61B9AC95E00DD78E7 /* User.swift */,
+				180044D51B9B8EF100AF78FC /* BaseViewController.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				98592E011B9BA1CB00438464 /* MarketPlaceTableViewCell.swift in Sources */,
 				984CA3211B96A55A00575850 /* RequestDashboardViewController.swift in Sources */,
 				98592DFB1B9B0C3D00438464 /* SearchResultsTableViewController.swift in Sources */,
+				180044D61B9B8EF100AF78FC /* BaseViewController.swift in Sources */,
 				98592DFD1B9B409900438464 /* SuccessViewController.swift in Sources */,
 				1823FBA01B9ABE3A00DD78E7 /* ServerManager.swift in Sources */,
 			);
