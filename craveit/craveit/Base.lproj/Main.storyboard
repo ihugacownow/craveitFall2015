@@ -441,6 +441,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="logIn" destination="UZ7-iG-ykn" eventType="touchUpInside" id="imD-j4-Mer"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbn-2G-a5T">
                                 <rect key="frame" x="273.5" y="460" width="53" height="30"/>
@@ -495,6 +498,10 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Log In" id="X1d-wG-KCB"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="hIG-LV-Anx" id="5Sn-pl-6Yf"/>
+                        <outlet property="passwordTextField" destination="dCX-WV-ltS" id="CTi-QR-PgO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgD-R3-oEH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
