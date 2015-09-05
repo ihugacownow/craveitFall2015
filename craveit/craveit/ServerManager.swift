@@ -9,14 +9,8 @@
 import UIKit
 import Parse
 
-protocol ServerManagerDelegate: class {
-    func 
-}
-
 
 class ServerManager: NSObject {    
-   
-    weak var delegate: ServerManagerDelegate?
     
     // Sign Up User 
     func signUp(username: String, password: String, email: String, photoData: NSData) {
@@ -46,6 +40,7 @@ class ServerManager: NSObject {
         let newRequest = PFObject(className: "Request")
         newRequest.setObject(name, forKey: "name")
         newRequest.setObject(money, forKey: "cost")
+        newRequest.setObject(false, forKey: "isCompleted")
         
         // Setting craver
         newRequest.setObject(user, forKey: "craver")
@@ -71,10 +66,10 @@ class ServerManager: NSObject {
     
     // Vicky check out https://parse.com/docs/ios/guide#queries.
     
-    // Fetching all records  --> to show in marketplace
-    
+    // Fetching all records  --> to show in marketplace --> Should show only those which are not marked completed
     func fetchAllRequests() -> [AnyObject]? {
         let query = PFQuery(className: "Request")
+        query.whereKey("isCompleted", equalTo: false)
         let results = query.findObjects()
         return results
     }
@@ -83,6 +78,15 @@ class ServerManager: NSObject {
     // Sort records (not sure if need to do during server fetch or do later when populating table)
     func fetchAllRequestsSortedByLocation() -> [AnyObject]? {
         let query = PFQuery(className: "Request")
+        query.whereKey("isCompleted", equalTo: false)
+        let results = query.findObjects()
+        return results
+    }
+    
+    // To populate admin dashboard 
+    func fetchOnlyRequestsFromCurrentUser() -> [AnyObject]? {
+        let query = PFQuery(className: "Request")
+        query.whereKey("craver", equalTo: PFUser.currentUser()!)
         let results = query.findObjects()
         return results
     }
