@@ -9,8 +9,15 @@
 import UIKit
 import Parse
 
+protocol ServerManagerDelegate: class {
+    func 
+}
+
+
 class ServerManager: NSObject {    
    
+    weak var delegate: ServerManagerDelegate?
+    
     // Sign Up User 
     func signUp(username: String, password: String, email: String, photoData: NSData) {
         var user = PFUser()
@@ -62,11 +69,37 @@ class ServerManager: NSObject {
       
     }
     
-    // Fetching records 
+    // Vicky check out https://parse.com/docs/ios/guide#queries.
+    
+    // Fetching all records  --> to show in marketplace
+    
+    func fetchAllRequests() -> [AnyObject]? {
+        let query = PFQuery(className: "Request")
+        let results = query.findObjects()
+        return results
+    }
+    
+    // To Do: 
+    // Sort records (not sure if need to do during server fetch or do later when populating table)
+    func fetchAllRequestsSortedByLocation() -> [AnyObject]? {
+        let query = PFQuery(className: "Request")
+        let results = query.findObjects()
+        return results
+    }
+    
+
     
     
     
-    // Helper functions 
+    
+    
+ 
+    
+
+    
+    
+    
+    // Helper functions
     func convertCLLocationToGeoPoint(location: CLLocationCoordinate2D) -> PFGeoPoint {
         return PFGeoPoint(latitude: location.latitude, longitude: location.longitude)
     }

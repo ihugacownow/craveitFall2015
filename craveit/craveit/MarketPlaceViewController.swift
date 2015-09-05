@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import Parse
 
-class MarketPlaceViewController: UIViewController {
-
+class MarketPlaceViewController: UIViewController, UITableViewDataSource {
+    
+    var tableDataSource: [AnyObject]?
+    var serverMan = AppDelegate.Location.ServerMan
+    
+    // This is a hack 
+    var clock: NSTimer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.clock = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "refreshListOfRequests", userInfo: nil, repeats: true)
 
         // Do any additional setup after loading the view.
     }
@@ -20,6 +29,27 @@ class MarketPlaceViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func refreshListOfRequests() {
+        tableDataSource = serverMan.fetchAllRequestsSortedByLocation()
+    }
+    
+// MARK -- TABLE VIEW METHOD AKASH
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableDataSource == nil {
+            return 0
+        } else {
+            return tableDataSource!.count
+        }
+        
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+    }
+  
+    
     
 
     /*
