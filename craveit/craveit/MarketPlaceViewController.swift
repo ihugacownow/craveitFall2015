@@ -102,8 +102,6 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate {
                 }
             }
         }
-       
-        
         
         let toGeoPointObject = item["endPoint"] as! PFObject
         toGeoPointObject.fetchIfNeeded()
@@ -129,7 +127,6 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate {
         println(tableDataSource.count)
         return tableDataSource.count
     }
-    
         
 }
     
