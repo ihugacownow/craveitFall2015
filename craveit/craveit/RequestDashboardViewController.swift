@@ -14,21 +14,29 @@ class RequestDashboardViewController: UIViewController, UITableViewDelegate, UIT
     
     var tableDataSource = [PFObject]()
     let serverMan = ServerManager()
-    
+    var clock: NSTimer?
     @IBOutlet weak var requestDashboardTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestDashboardTableView.delegate = self
+        requestDashboardTableView.dataSource = self
+        self.clock = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "refreshListOfRequests", userInfo: nil, repeats: true)
+        self.refreshListOfRequests()
+
         
+        
+    }
+    
+    func refreshListOfRequests() {
+        println("Calling lists from server")
         if serverMan.fetchOnlyRequestsFromCurrentUser() == nil {
             tableDataSource = [PFObject]()
         } else {
             tableDataSource = serverMan.fetchOnlyRequestsFromCurrentUser()!
             requestDashboardTableView.reloadData()
-           
         }
-        
-        
     }
+
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
@@ -61,7 +69,27 @@ class RequestDashboardViewController: UIViewController, UITableViewDelegate, UIT
         //        let selectedView = UIView()
         //        selectedView.backgroundColor = UIColor(red: 241, green: 196, blue: 15)
         //        cell.selectedBackgroundView = selectedView
-        
+        println("AKJHDFKSJDHFKSJDFHSKJDF")
+        if cell.toggleMarketPlaceEntrySwitch.on {
+            println("cell \(row) is on")
+            if let user = AppDelegate.Location.currentUser {
+                var query = PFQuery(className: "Request")
+                var object = query.getObjectWithId(tableDataSource[row].objectId!)
+                 println(tableDataSource[row].objectId!)
+                object!.setObject(false, forKey: "isCompleted")
+                object!.saveInBackground()
+            }
+        } else {
+             if let user = AppDelegate.Location.currentUser {
+                var query = PFQuery(className: "Request")
+                var object = query.getObjectWithId(tableDataSource[row].objectId!)
+            println(tableDataSource[row].objectId!)
+                
+                object!.setObject(true, forKey: "isCompleted")
+                object!.saveInBackground()
+            }
+
+        }
         
         
         return cell

@@ -15,6 +15,7 @@ class RequestsDashboardTableViewCell: UITableViewCell {
     let serverManager = ServerManager()
     @IBOutlet weak var deliverToLabel: UILabel!
     
+    @IBOutlet weak var toggleMarketPlaceEntrySwitch: UISwitch!
     @IBAction func toggleEntryIntoMarketPlace(sender: UISwitch) {
         if sender.on {
             if let user = AppDelegate.Location.currentUser {

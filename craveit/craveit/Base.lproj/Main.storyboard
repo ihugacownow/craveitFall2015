@@ -220,9 +220,6 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IhE-gi-X8B">
                                                     <rect key="frame" x="511" y="22" width="51" height="31"/>
-                                                    <connections>
-                                                        <action selector="toggleEntryIntoMarketPlace:" destination="as8-Re-aVh" eventType="valueChanged" id="BUf-iA-nPO"/>
-                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -241,6 +238,7 @@
                                         <connections>
                                             <outlet property="deliverFromLabel" destination="5lN-dA-OtE" id="TgF-um-7dA"/>
                                             <outlet property="deliverToLabel" destination="I8O-fs-Z2s" id="bci-G6-igE"/>
+                                            <outlet property="toggleMarketPlaceEntrySwitch" destination="IhE-gi-X8B" id="hMa-hv-HJH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1234,9 +1232,9 @@
         <image name="loginBackground.png" width="375" height="667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fa3-59-QjE"/>
-        <segue reference="GWa-4M-CAS"/>
         <segue reference="7ro-Hs-M4U"/>
+        <segue reference="cPY-7K-Ah0"/>
+        <segue reference="GWa-4M-CAS"/>
         <segue reference="LAj-lQ-sji"/>
     </inferredMetricsTieBreakers>
 </document>
