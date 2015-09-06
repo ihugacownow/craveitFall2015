@@ -10,10 +10,14 @@ import UIKit
 
 class MarketPlaceTableViewCell: UITableViewCell
 {
+   
+    @IBOutlet weak var deliverFromLabel: UILabel!
     
-    @IBOutlet weak var fromAddressLabel: UILabel!
-
-    @IBOutlet weak var toAddressLabel: UILabel!
+    @IBOutlet weak var feeLabel: UILabel!
+    @IBOutlet weak var deliverToLabel: UILabel!
+//    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+//        super.init(style, reuseIdentifier)
+//        
+//    }
     
-    @IBOutlet weak var deliveryFeeLabel: UILabel!
 }

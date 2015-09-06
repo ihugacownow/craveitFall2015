@@ -17,18 +17,19 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var marketPlaceTableView: UITableView!
     // This is a hack 
-//    var clock: NSTimer?
+    var clock: NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         marketPlaceTableView.delegate = self
         //marketPlaceTableView.dataSource = self
        
-//        self.clock = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "refreshListOfRequests", userInfo: nil, repeats: true)
+        self.clock = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "refreshListOfRequests", userInfo: nil, repeats: true)
         self.refreshListOfRequests()
 
         // Do any additional setup after loading the view.
         
+//        println("tabledatasource is \(self.tableDataSource)")
     }
 
 
@@ -55,15 +56,16 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier(
             "marketPlaceCell", forIndexPath: indexPath) as! MarketPlaceTableViewCell
         println("cell is \(cell)")
-//        if (cell == nil) {
-//            //tableView.registerNib(UINib(nibName: "UICustomTableViewCell", bundle: nil), forCellReuseIdentifier: "UICustomTableViewCell")
-////            tableView.registerClass(MyCell.classForCoder(), forCellReuseIdentifier: "marketPlaceCell")
-//            
-//            cell = MarketPlaceTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "marketPlaceCell")
-//        }
+        
+
         // Configure the cell...
-        cell.textLabel!.font = UIFont.systemFontOfSize(14)
         cell.textLabel!.numberOfLines = 0
+        
+        if cell.deliverFromLabel != nil {
+            
+        } else {
+            
+        }
         
         let row = indexPath.row
         
@@ -83,6 +85,7 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate {
         
     }
     
+<<<<<<< HEAD
 //    func populateCell(cell: MarketPlaceTableViewCell, item: PFObject) {
 //        let fromGeoPointObject = (item["startPoint"] as! PFObject).fetchIfNeeded()
 //        
@@ -109,8 +112,52 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate {
 //        println(tableDataSource.count)
 //        return tableDataSource.count
 //    }
+=======
+    func populateCell(cell: MarketPlaceTableViewCell, item: PFObject) {
+        let fromGeoPointObject = item["startPoint"] as! PFObject
+        fromGeoPointObject.fetchIfNeeded()
+        let fromGeoPoint = fromGeoPointObject["startLocation"] as! PFGeoPoint
+        let fromPointCoordinates = CLLocationCoordinate2DMake(fromGeoPoint.latitude, fromGeoPoint.longitude)
+        
+        let geocoder = GMSGeocoder()
+        
+        geocoder.reverseGeocodeCoordinate(fromPointCoordinates) { response , error in
+            //Add this line
+            if let _ = response {
+                if let address = response.firstResult() {
+                    let lines = address.lines as! [String]
+                    cell.deliverFromLabel.text = "\n".join(lines)
+                }
+            }
+        }
+       
+        
+        
+        let toGeoPointObject = item["endPoint"] as! PFObject
+        toGeoPointObject.fetchIfNeeded()
+        let toGeoPoint = toGeoPointObject["endPoint"] as! PFGeoPoint
+        let toPointCoordinates = CLLocationCoordinate2DMake(toGeoPoint.latitude, toGeoPoint.longitude)
+        geocoder.reverseGeocodeCoordinate(toPointCoordinates) { response , error in
+            //Add this line
+            if let _ = response {
+                if let address = response.firstResult() {
+                    let lines = address.lines as! [String]
+                    
+                    cell.deliverToLabel.text = "\n".join(lines)
+                }
+            }
+        }
+        
+        let fee = item["cost"] as? CGFloat
+        cell.feeLabel.text = "\(fee!)"
+    }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        println(tableDataSource.count)
+        return tableDataSource.count
+    }
+    
         
 //        let row = indexPath.row
 //        selectedRow = row
@@ -123,24 +170,48 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate {
         
     }
     
-    func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) -> String {
-        var textAddress: String = ""
-        let geocoder = GMSGeocoder()
-        geocoder.reverseGeocodeCoordinate(coordinate) { response , error in
-            
-            //Add this line
-            if let _ = response {
-                if let address = response.firstResult() {
-                    let lines = address.lines as! [String]
-                    
-                    textAddress = lines.first!
-                }
-            }
-            
-            
-        }
-        return textAddress
-    }
+//    func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) {
+//        let geocoder = GMSGeocoder()
+//        var isQueryDone = false
+//        geocoder.reverseGeocodeCoordinate(coordinate) { response , error in
+//            
+//            //Add this line
+//            if let _ = response {
+//                if let address = response.firstResult() {
+//                    let lines = address.lines as! [String]
+//                    
+//                    textAddress = "\n".join(lines)
+//                    isQueryDone = true
+//                }
+//            }
+//        }
+//        if isQueryDone {
+//            return textAddress
+//        }
+//        return textAddress
+//    }
+    
+//    func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) -> String {
+//        var textAddress: String = ""
+//        let geocoder = GMSGeocoder()
+//        var isQueryDone = false
+//        geocoder.reverseGeocodeCoordinate(coordinate) { response , error in
+//            
+//            //Add this line
+//            if let _ = response {
+//                if let address = response.firstResult() {
+//                    let lines = address.lines as! [String]
+//                    
+//                    textAddress = "\n".join(lines)
+//                    isQueryDone = true
+//                }
+//            }
+//        }
+//        if isQueryDone {
+//            return textAddress
+//        }
+//        return textAddress
+//    }
 
   
     

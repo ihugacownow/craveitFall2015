@@ -666,19 +666,58 @@
                                 <rect key="frame" x="16" y="110" width="568" height="482"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="marketPlaceCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="marketPlaceCell" textLabel="H2U-ZL-jBc" rowHeight="76" style="IBUITableViewCellStyleDefault" id="yAh-ma-8Le" customClass="MarketPlaceTableViewCell" customModule="craveit" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="marketPlaceCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="marketPlaceCell" rowHeight="76" id="yAh-ma-8Le" customClass="MarketPlaceTableViewCell" customModule="craveit" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yAh-ma-8Le" id="Oc1-6J-sdI">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+<<<<<<< HEAD
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H2U-ZL-jBc">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+=======
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVf-xu-cEa">
+                                                    <rect key="frame" x="8" y="8" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCn-gm-G4I">
+                                                    <rect key="frame" x="8" y="46.5" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vU3-tm-ybd">
+                                                    <rect key="frame" x="8" y="37" width="502" height="1"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWp-Eb-2BG">
+                                                    <rect key="frame" x="518" y="27" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iVf-xu-cEa" firstAttribute="leading" secondItem="Oc1-6J-sdI" secondAttribute="leadingMargin" id="3kB-lS-TMf"/>
+                                                <constraint firstItem="fWp-Eb-2BG" firstAttribute="centerY" secondItem="vU3-tm-ybd" secondAttribute="centerY" id="8Lz-t7-t3g"/>
+                                                <constraint firstItem="fWp-Eb-2BG" firstAttribute="leading" secondItem="vU3-tm-ybd" secondAttribute="trailing" constant="8" symbolic="YES" id="8eF-LR-xFj"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="LCn-gm-G4I" secondAttribute="bottom" id="B4P-kJ-euy"/>
+                                                <constraint firstItem="iVf-xu-cEa" firstAttribute="top" secondItem="Oc1-6J-sdI" secondAttribute="topMargin" id="CBs-g7-FLZ"/>
+                                                <constraint firstItem="vU3-tm-ybd" firstAttribute="leading" secondItem="Oc1-6J-sdI" secondAttribute="leadingMargin" id="Ena-Ps-j6n"/>
+                                                <constraint firstItem="vU3-tm-ybd" firstAttribute="top" secondItem="iVf-xu-cEa" secondAttribute="bottom" constant="8" symbolic="YES" id="HyP-pg-kuN"/>
+                                                <constraint firstItem="fWp-Eb-2BG" firstAttribute="trailing" secondItem="Oc1-6J-sdI" secondAttribute="trailingMargin" id="Wdn-GM-vue"/>
+                                                <constraint firstItem="LCn-gm-G4I" firstAttribute="top" secondItem="vU3-tm-ybd" secondAttribute="bottom" constant="8" symbolic="YES" id="Z6G-PG-JP1"/>
+                                                <constraint firstItem="LCn-gm-G4I" firstAttribute="leading" secondItem="Oc1-6J-sdI" secondAttribute="leadingMargin" id="hOy-MK-qrC"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="deliverFromLabel" destination="iVf-xu-cEa" id="jBD-5H-m9N"/>
+                                            <outlet property="deliverToLabel" destination="LCn-gm-G4I" id="dwd-74-zvl"/>
+                                            <outlet property="feeLabel" destination="fWp-Eb-2BG" id="gfL-Zz-tDd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1009,8 +1048,8 @@
         <image name="loginBackground.png" width="375" height="667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="A3R-fX-C4Y"/>
         <segue reference="LAj-lQ-sji"/>
+        <segue reference="3rV-9L-jyT"/>
         <segue reference="2at-gH-gn3"/>
     </inferredMetricsTieBreakers>
 </document>
