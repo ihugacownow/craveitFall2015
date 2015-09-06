@@ -86,13 +86,13 @@ class ServerManager: NSObject {
     }
     
     // To populate admin dashboard 
-    func fetchOnlyRequestsFromCurrentUser() -> [AnyObject]? {
+    func fetchOnlyRequestsFromCurrentUser() -> [PFObject]? {
         let query = PFQuery(className: "Request")
         query.whereKey("craver", equalTo: PFUser.currentUser()!)
         
         //AppDelegate.Location.requestObjectID.append(<#newElement: T#>)
         let results = query.findObjects()
-        return results
+        return results as! [PFObject]?
     }
     
 
