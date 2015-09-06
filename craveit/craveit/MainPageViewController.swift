@@ -37,7 +37,7 @@ class MainPageViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
         let location = CLLocationCoordinate2D(latitude: 1.0, longitude: 1.0)
         //let user = User()
         let money: CGFloat = 10.0
-        serverMan.sendRequestToServer("test", money: money, start: location, end: location, user: PFUser.currentUser()!)
+        serverMan.sendRequestToServer("test", money: money, start: location, end: location, isCompleted: false, user: PFUser.currentUser()!)
     }
     
   
@@ -115,6 +115,9 @@ class MainPageViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
 //        destinationMarker.title = self.mapTasks.destinationAddress
 //    }
     
+    @IBAction func openDeliverPage(sender: UIButton) {
+        performSegueWithIdentifier("deliver", sender: nil)
+    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier  = segue.identifier {
             switch identifier {

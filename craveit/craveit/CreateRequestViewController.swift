@@ -47,7 +47,7 @@ class CreateRequestViewController: UIViewController {
     @IBAction func submitRequest(sender: UIButton) {
        if let user = AppDelegate.Location.currentUser {
         
-        serverManager.sendRequestToServer(user.username!, money: CGFloat(NSNumberFormatter().numberFromString(deliveryFeeTextField.text)!.floatValue), start: startCoordinates!, end: endCoordinates!, user: user)
+        serverManager.sendRequestToServer(user.username!, money: CGFloat(NSNumberFormatter().numberFromString(deliveryFeeTextField.text)!.floatValue), start: startCoordinates!, end: endCoordinates!, isCompleted: false, user: user)
             println("user is logged in!")
         }
         performSegueWithIdentifier("submittedRequest", sender: nil)
