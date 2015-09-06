@@ -55,14 +55,16 @@ class MainPageViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
             self.mapView.camera = GMSCameraPosition.cameraWithTarget(currentLocation.coordinate, zoom: 17.0)
 
         }
+        println("before")
         if let fromAddress = defaults.valueForKey("deliverFrom") as? String {
             deliverFromTextField.text = fromAddress
+            println("after")
         }
         if let toAddress = defaults.valueForKey("deliverTo") as? String {
             deliverToTextField.text = toAddress
         }
         
-            }
+    }
     
 
     @IBAction func searchFromLocationAddress(sender: UITextField) {
@@ -129,6 +131,7 @@ class MainPageViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
                     srvc.searchQuery = deliverFromTextField.text
                     deliverFromTextField.resignFirstResponder()
                     srvc.sender = "from"
+                    println(srvc.sender)
                     
                 }
             case "lookUpToAddress" :

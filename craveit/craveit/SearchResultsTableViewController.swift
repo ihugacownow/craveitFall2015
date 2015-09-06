@@ -18,7 +18,7 @@ class SearchResultsTableViewController: UITableViewController
     var destinationFormattedAddress: String!
     var destinationLatitude: Double!
     var destinationLongitude: Double!
-    var sender: String!
+    var sender: String?
     let defaults = NSUserDefaults.standardUserDefaults()
    
     
@@ -111,6 +111,8 @@ class SearchResultsTableViewController: UITableViewController
         let item = matchingAddresses[row]
        // println(item)
         destinationFormattedAddress = item
+        println(destinationFormattedAddress)
+        
         destinationLatitude = self.mapTasks.fetchedAddressLatitudeList[row]
         // println("\(destinationLatitude)")
         destinationLongitude = self.mapTasks.fetchedAddressLongitudeList[row]
@@ -124,18 +126,22 @@ class SearchResultsTableViewController: UITableViewController
             switch identifier {
             case "returnDestination":
                 if let mvc = segue.destinationViewController as? MainPageViewController {
+                    println(self.sender!)
                     mvc.manager.startUpdatingLocation()
                     mvc.destination = destinationFormattedAddress
                     mvc.locationLongitude = destinationLongitude
                     mvc.locationLatitude = destinationLatitude
-                    if self.sender == "from" {
+                    if self.sender! == "from" {
                         defaults.setValue(destinationFormattedAddress, forKey: "deliverFrom")
+                        println("\(destinationFormattedAddress)")
                         
                         mvc.deliverFromMarker = GMSMarker(position: CLLocationCoordinate2DMake(destinationLatitude, destinationLongitude))
-                    } else if self.sender == "to" {
+                    } else if self.sender! == "to" {
                         defaults.setValue(destinationFormattedAddress, forKey: "deliverTo")
                         //mvc.deliverToTextField.text = destinationFormattedAddress
                         mvc.deliverToMarker = GMSMarker(position: CLLocationCoordinate2DMake(destinationLatitude, destinationLongitude))
+                    } else {
+                        
                     }
                     
                     
