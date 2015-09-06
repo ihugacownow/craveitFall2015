@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import GoogleMaps
 
-class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MarketPlaceViewController: UIViewController, UITableViewDelegate {
     
     var tableDataSource = [PFObject]()
     var serverMan = AppDelegate.Location.ServerMan
@@ -22,7 +22,7 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         marketPlaceTableView.delegate = self
-        marketPlaceTableView.dataSource = self
+        //marketPlaceTableView.dataSource = self
        
 //        self.clock = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "refreshListOfRequests", userInfo: nil, repeats: true)
         self.refreshListOfRequests()
@@ -68,7 +68,7 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableV
         let row = indexPath.row
         
         let item = tableDataSource[row]
-        populateCell(cell, item: item)
+        //populateCell(cell, item: item)
         
         //cost, createdAt, craver, name, startPoint, endPoint
 //        cell.textLabel!.text = item
@@ -83,32 +83,32 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
-    func populateCell(cell: MarketPlaceTableViewCell, item: PFObject) {
-        let fromGeoPointObject = (item["startPoint"] as! PFObject).fetchIfNeeded()
-        
-        if fromGeoPointObject != nil {
-            let fromGeoPoint: AnyObject? = fromGeoPointObject!["startLocation"]
-        }
-
-        let fromPointCoordinates = CLLocationCoordinate2DMake(fromGeoPoint.latitude, fromGeoPoint.longitude)
-        let fromAddress = reverseGeocodeCoordinate(fromPointCoordinates)
-        cell.fromAddressLabel.text = fromAddress
-        
-        let toGeoPointObject = item["endPoint"] as! PFObject
-        
-        let toGeoPoint = toGeoPointObject["endPoint"] as! PFGeoPoint
-        
-        
-        let toPointCoordinates = CLLocationCoordinate2DMake(toGeoPoint.latitude, toGeoPoint.longitude)
-        let toAddress = reverseGeocodeCoordinate(toPointCoordinates)
-        cell.toAddressLabel.text = toAddress
-        let fee = item["cost"] as? CGFloat
-        cell.deliveryFeeLabel.text = "\(fee)"
-    }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println(tableDataSource.count)
-        return tableDataSource.count
-    }
+//    func populateCell(cell: MarketPlaceTableViewCell, item: PFObject) {
+//        let fromGeoPointObject = (item["startPoint"] as! PFObject).fetchIfNeeded()
+//        
+//        if fromGeoPointObject != nil {
+//            let fromGeoPoint: AnyObject? = fromGeoPointObject!["startLocation"]
+//        }
+//
+//        let fromPointCoordinates = CLLocationCoordinate2DMake(fromGeoPoint.latitude, fromGeoPoint.longitude)
+//        let fromAddress = reverseGeocodeCoordinate(fromPointCoordinates)
+//        cell.fromAddressLabel.text = fromAddress
+//        
+//        let toGeoPointObject = item["endPoint"] as! PFObject
+//        
+//        let toGeoPoint = toGeoPointObject["endPoint"] as! PFGeoPoint
+//        
+//        
+//        let toPointCoordinates = CLLocationCoordinate2DMake(toGeoPoint.latitude, toGeoPoint.longitude)
+//        let toAddress = reverseGeocodeCoordinate(toPointCoordinates)
+//        cell.toAddressLabel.text = toAddress
+//        let fee = item["cost"] as? CGFloat
+//        cell.deliveryFeeLabel.text = "\(fee)"
+//    }
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        println(tableDataSource.count)
+//        return tableDataSource.count
+//    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
