@@ -38,7 +38,7 @@ class ServerManager: NSObject {
     //  When submit request button is pressed
     func sendRequestToServer(name: String, money: CGFloat, start: CLLocationCoordinate2D, end: CLLocationCoordinate2D, user: PFUser) {
         let newRequest = PFObject(className: "Request")
-        AppDelegate.Location.requestObjectID.append(newRequest.objectId!)
+        
         newRequest.setObject(name, forKey: "name")
         newRequest.setObject(money, forKey: "cost")
         newRequest.setObject(false, forKey: "isCompleted")
@@ -86,13 +86,13 @@ class ServerManager: NSObject {
     }
     
     // To populate admin dashboard 
-    func fetchOnlyRequestsFromCurrentUser() -> [AnyObject]? {
+    func fetchOnlyRequestsFromCurrentUser() -> [PFObject]? {
         let query = PFQuery(className: "Request")
         query.whereKey("craver", equalTo: PFUser.currentUser()!)
         
         //AppDelegate.Location.requestObjectID.append(<#newElement: T#>)
         let results = query.findObjects()
-        return results
+        return results as! [PFObject]?
     }
     
 

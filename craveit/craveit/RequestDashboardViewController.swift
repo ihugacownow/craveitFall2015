@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+import GoogleMaps
 
 class RequestDashboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -44,7 +46,7 @@ class RequestDashboardViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(
-            "requestCell", forIndexPath: indexPath) as! RequestsDashboardTableViewCell
+            "requestCell", forIndexPath: indexPath) as! RequestDashboardTableViewCell
         println("cell is \(cell)")
         
         
@@ -57,10 +59,21 @@ class RequestDashboardViewController: UIViewController, UITableViewDelegate, UIT
             
         }
         
+        
+        
         let row = indexPath.row
         
         let item = tableDataSource[row]
         populateCell(cell, item: item)
+        
+        var query = PFQuery(className: "Request")
+        var object = query.getObjectWithId(tableDataSource[row].objectId!)
+        if object!.valueForKey("isCompleted") as! Bool == true {
+            cell.toggleMarketPlaceEntrySwitch.on = false
+        } else {
+            cell.toggleMarketPlaceEntrySwitch.on = true
+
+        }
         
         //cost, createdAt, craver, name, startPoint, endPoint
         //        cell.textLabel!.text = item
@@ -95,6 +108,52 @@ class RequestDashboardViewController: UIViewController, UITableViewDelegate, UIT
         
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableDataSource.count
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    func populateCell(cell: RequestDashboardTableViewCell, item: PFObject) {
+        let fromGeoPointObject = item["startPoint"] as! PFObject
+        fromGeoPointObject.fetchIfNeeded()
+        let fromGeoPoint = fromGeoPointObject["startLocation"] as! PFGeoPoint
+        let fromPointCoordinates = CLLocationCoordinate2DMake(fromGeoPoint.latitude, fromGeoPoint.longitude)
+        
+        let geocoder = GMSGeocoder()
+        
+        geocoder.reverseGeocodeCoordinate(fromPointCoordinates) { response , error in
+            //Add this line
+            if let _ = response {
+                if let address = response.firstResult() {
+                    let lines = address.lines as! [String]
+                    cell.deliverFromLabel.text = "\n".join(lines)
+                }
+            }
+        }
+        
+        let toGeoPointObject = item["endPoint"] as! PFObject
+        toGeoPointObject.fetchIfNeeded()
+        let toGeoPoint = toGeoPointObject["endPoint"] as! PFGeoPoint
+        let toPointCoordinates = CLLocationCoordinate2DMake(toGeoPoint.latitude, toGeoPoint.longitude)
+        geocoder.reverseGeocodeCoordinate(toPointCoordinates) { response , error in
+            //Add this line
+            if let _ = response {
+                if let address = response.firstResult() {
+                    let lines = address.lines as! [String]
+                    
+                    cell.deliverToLabel.text = "\n".join(lines)
+                }
+            }
+        }
+        
+    }
+    
+    
+    
+
 
     /*
     // MARK: - Navigation
