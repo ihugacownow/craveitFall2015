@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class RequestDashboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -94,6 +95,15 @@ class RequestDashboardViewController: UIViewController, UITableViewDelegate, UIT
         
         
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableDataSource.count
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
     
 
     /*
