@@ -10,9 +10,25 @@ import UIKit
 
 class MessagesViewController: UIViewController {
 
+    @IBOutlet weak var fromLabel: UILabel!
+    @IBOutlet weak var toLabel: UILabel!
+    @IBOutlet weak var feeLabel: UILabel!
+    @IBOutlet weak var requestLabel: UILabel!
+    var from: String?
+    var to: String?
+    var what: String?
+    var fee: String?
+    var username: String?
+    
+    @IBOutlet weak var nameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fromLabel.text = from
+        toLabel.text = to
+        feeLabel.text = fee
+        requestLabel.text = what
+        nameLabel.text = username
+        
         // Do any additional setup after loading the view.
     }
 
@@ -22,14 +38,5 @@ class MessagesViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
 }

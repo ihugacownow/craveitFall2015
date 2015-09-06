@@ -14,17 +14,26 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableV
     
     var tableDataSource = [PFObject]()
     var serverMan = AppDelegate.Location.ServerMan
-    
+    var maximumDistance = 0.0
+    var to: String?
+    var from: String?
+    var what: String?
+    var fee: String?
+    var username: String?
     @IBOutlet weak var marketPlaceTableView: UITableView!
     // This is a hack 
     var clock: NSTimer?
     
+    @IBOutlet weak var radiusSlider: UISlider!
     override func viewDidLoad() {
         super.viewDidLoad()
+        radiusSlider.minimumValue = 0
+        radiusSlider.maximumValue = 5000
+        maximumDistance = Double(radiusSlider.value)
         marketPlaceTableView.delegate = self
         marketPlaceTableView.dataSource = self
        
-        self.clock = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "refreshListOfRequests", userInfo: nil, repeats: true)
+        self.clock = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "refreshListOfRequests", userInfo: nil, repeats: true)
         self.refreshListOfRequests()
 
         // Do any additional setup after loading the view.
@@ -33,17 +42,19 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
 
+    @IBAction func changeRadius(sender: UISlider) {
+        maximumDistance = Double(sender.value)
+    }
    
     func refreshListOfRequests() {
         println("Calling lists from server")
-        if serverMan.fetchAllRequestsSortedByLocation() == nil {
+        if serverMan.fetchAllOutstandingRequestsSortedByLocation(self.maximumDistance) == nil {
             tableDataSource = [PFObject]()
         } else {
-            tableDataSource = serverMan.fetchAllRequestsSortedByLocation()!
+            tableDataSource = serverMan.fetchAllOutstandingRequestsSortedByLocation(self.maximumDistance)!
             marketPlaceTableView.reloadData()
         }
     }
-    
 // MARK -- TABLE VIEW METHOD AKASH
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -99,8 +110,11 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableV
                 if let address = response.firstResult() {
                     let lines = address.lines as! [String]
                     cell.deliverFromLabel.text = "\n".join(lines)
+                    self.from = cell.deliverFromLabel.text
                 }
             }
+            
+            self.what = item["name"] as! String?
         }
         
         let toGeoPointObject = item["endPoint"] as! PFObject
@@ -114,18 +128,54 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableV
                     let lines = address.lines as! [String]
                     
                     cell.deliverToLabel.text = "\n".join(lines)
+                    self.to = cell.deliverToLabel.text
                 }
             }
         }
         
         let fee = item["cost"] as? CGFloat
         cell.feeLabel.text = "\(fee!)"
+        self.fee = cell.feeLabel.text
+        let craver = item["craver"] as! PFObject
+        craver.fetchIfNeeded()
+        self.username = craver["username"] as? String
     }
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         println(tableDataSource.count)
         return tableDataSource.count
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let row = indexPath.row
+        //selectedRow = row
+        //let item = matchingAddresses[row]
+        // println(item)
+//        destinationFormattedAddress = item
+//        println(destinationFormattedAddress)
+        
+       
+        performSegueWithIdentifier("details", sender: nil)
+
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "details" :
+                if let msgvc = segue.destinationViewController as? MessagesViewController {
+                    msgvc.from = from
+                    msgvc.to = to
+                    msgvc.fee = fee
+                    msgvc.what = what
+                    msgvc.username = username
+                    
+                }
+            default: break
+                
+            }
+            
+        }
     }
         
 }

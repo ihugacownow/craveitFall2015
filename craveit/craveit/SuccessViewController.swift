@@ -16,5 +16,8 @@ class SuccessViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func viewRequests(sender: UIButton) {
+        //performSegueWithIdentifier("viewRequests", sender: nil)
+    }
     
 }

@@ -66,6 +66,8 @@ class SignInViewController: BaseViewController {
     // If needed in future 
     @IBAction func logOut() {
         PFUser.logOut()
+        AppDelegate.Location.currentUser = nil
+        performSegueWithIdentifier("loggedOut", sender: nil)
         println("user is now \(PFUser.currentUser())")
     }
     

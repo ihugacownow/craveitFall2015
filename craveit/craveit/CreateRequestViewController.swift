@@ -22,7 +22,7 @@ class CreateRequestViewController: UIViewController {
     let serverManager = ServerManager()
     var startCoordinates: CLLocationCoordinate2D?
     var endCoordinates: CLLocationCoordinate2D?
-    
+    let defaults = NSUserDefaults.standardUserDefaults()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,6 +34,7 @@ class CreateRequestViewController: UIViewController {
         if let to = deliverToAddress {
             deliverToAddressLabel.text = to
         }
+        
         
     }
     
@@ -47,7 +48,7 @@ class CreateRequestViewController: UIViewController {
     @IBAction func submitRequest(sender: UIButton) {
        if let user = AppDelegate.Location.currentUser {
         
-        serverManager.sendRequestToServer(user.username!, money: CGFloat(NSNumberFormatter().numberFromString(deliveryFeeTextField.text)!.floatValue), start: startCoordinates!, end: endCoordinates!, user: user)
+        serverManager.sendRequestToServer(requestTextField.text, money: CGFloat(NSNumberFormatter().numberFromString(deliveryFeeTextField.text)!.floatValue), start: startCoordinates!, end: endCoordinates!, user: user)
             println("user is logged in!")
         }
         performSegueWithIdentifier("submittedRequest", sender: nil)

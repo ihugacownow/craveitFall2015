@@ -128,16 +128,27 @@ class SearchResultsTableViewController: UITableViewController
                 if let mvc = segue.destinationViewController as? MainPageViewController {
                     println(self.sender!)
                     mvc.manager.startUpdatingLocation()
-                    mvc.destination = destinationFormattedAddress
-                    mvc.locationLongitude = destinationLongitude
-                    mvc.locationLatitude = destinationLatitude
+                    //mvc.destination = destinationFormattedAddress
+                    
                     if self.sender! == "from" {
+                        mvc.origin = destinationFormattedAddress
+                        mvc.originLongitude = destinationLongitude
+                        mvc.originLatitude = destinationLatitude
+                         println(CLLocationCoordinate2DMake(destinationLatitude!, destinationLongitude!))
+                        
                         defaults.setValue(destinationFormattedAddress, forKey: "deliverFrom")
                         println("\(destinationFormattedAddress)")
-                        
+                        defaults.setValue(destinationLatitude, forKey: "fromLatitude")
+                           defaults.setValue(destinationLongitude, forKey: "fromLongitude")
+                        mvc.originCoordinate = CLLocationCoordinate2DMake(destinationLatitude, destinationLongitude)
                         mvc.deliverFromMarker = GMSMarker(position: CLLocationCoordinate2DMake(destinationLatitude, destinationLongitude))
                     } else if self.sender! == "to" {
+                        mvc.destination = destinationFormattedAddress
+                        mvc.destinationLongitude = destinationLongitude
+                        mvc.destinationLatitude = destinationLatitude
                         defaults.setValue(destinationFormattedAddress, forKey: "deliverTo")
+                        defaults.setValue(destinationLatitude, forKey: "toLatitude")
+                        defaults.setValue(destinationLongitude, forKey: "toLongitude")
                         //mvc.deliverToTextField.text = destinationFormattedAddress
                         mvc.deliverToMarker = GMSMarker(position: CLLocationCoordinate2DMake(destinationLatitude, destinationLongitude))
                     } else {
@@ -155,7 +166,7 @@ class SearchResultsTableViewController: UITableViewController
     }
     
     func showAlertWithMessage(message: String) {
-        let alertController = UIAlertController(title: "track-o-meter", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "craveit", message: message, preferredStyle: UIAlertControllerStyle.Alert)
         
         let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel) { (alertAction) -> Void in
             

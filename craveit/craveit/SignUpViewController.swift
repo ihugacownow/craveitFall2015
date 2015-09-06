@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: BaseViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -18,6 +18,10 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self 
 
         // Do any additional setup after loading the view.
     }
@@ -31,6 +35,8 @@ class SignUpViewController: UIViewController {
         
         
         serverMan.signUp(nameTextField.text, password: passwordTextField.text, email: emailTextField.text, photoData: photoData)
+        
+        performSegueWithIdentifier("signedUp", sender: nil)
     }
 
 

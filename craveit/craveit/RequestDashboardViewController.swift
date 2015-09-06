@@ -20,7 +20,7 @@ class RequestDashboardViewController: UIViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
         requestDashboardTableView.delegate = self
         requestDashboardTableView.dataSource = self
-        self.clock = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "refreshListOfRequests", userInfo: nil, repeats: true)
+        //self.clock = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "refreshListOfRequests", userInfo: nil, repeats: true)
         self.refreshListOfRequests()
 
         

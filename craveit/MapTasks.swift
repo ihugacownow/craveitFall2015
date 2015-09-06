@@ -61,7 +61,7 @@ class MapTasks: NSObject
             
             let geocodeURL = NSURL(string: geocodeURLString)
             
-            var placesURLString = baseURLPlaces + "query=" + lookupAddress + "&key=AIzaSyDoZUG8swN8bpSs9mT72Q960ChHmOWXjGM"
+            var placesURLString = baseURLPlaces + "query=" + lookupAddress + "&key=AIzaSyDLUJZ4tw84Tgn5kPocZUOxVGRaw0MbBEY"
             placesURLString = placesURLString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
             let placesURL = NSURL(string: placesURLString)
             
@@ -216,6 +216,10 @@ class MapTasks: NSObject
        func getDirections(origin: CLLocationCoordinate2D!, destination: String!, waypoints: Array<String>!, travelMode: AnyObject!, completionHandler: ((status: String, success: Bool) -> Void)) {
         if let originLocation = origin {
             if let destinationLocation = destination {
+                println(origin)
+                println(destination)
+                //var directionsURLString = baseURLDirections + "origin=" + "\(origin.latitude)" + "," + "\(origin.longitude)" + "destination=" + destination + "&units=imperial&alternatives=true&sensor=false"
+                
                 var directionsURLString = baseURLDirections + "origin=" + "\(origin.latitude)" + "," + "\(origin.longitude)" + "&destination=" + destinationLocation + "&units=imperial&alternatives=true&sensor=false"
 
 
@@ -228,6 +232,7 @@ class MapTasks: NSObject
                     let directionsData = NSData(contentsOfURL: directionsURL!)
                     
                     var error: NSError?
+                    //if let _ = directionsData {
                     let dictionary: Dictionary<NSObject, AnyObject> = NSJSONSerialization.JSONObjectWithData(directionsData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! Dictionary<NSObject, AnyObject>
                     
                     if (error != nil) {
@@ -260,6 +265,7 @@ class MapTasks: NSObject
                             completionHandler(status: status, success: false)
                         }
                     }
+                   // }
                 })
             }
             else {

@@ -65,6 +65,28 @@ class ServerManager: NSObject {
       
     }
     
+    func fetchAllOutstandingRequestsSortedByLocation(minimumDistance: CLLocationDistance) -> [PFObject]? {
+        let query = PFQuery(className: "Request")
+        query.whereKey("isCompleted", equalTo: false)
+        let results = query.findObjects()
+        
+        var filteredResults = [PFObject]()
+        for result in results! {
+            let request = result as! PFObject
+            let fromGeoPointObject =  request["startPoint"] as! PFObject
+            fromGeoPointObject.fetchIfNeeded()
+            let fromGeoPoint = fromGeoPointObject["startLocation"] as! PFGeoPoint
+            let fromPointCoordinates = CLLocation(latitude: fromGeoPoint.latitude, longitude: fromGeoPoint.longitude)
+            let distanceBetweenTwoPoints = AppDelegate.Location.currentLocation!.distanceFromLocation(fromPointCoordinates)
+            let objectID = request.objectId!
+            if distanceBetweenTwoPoints < minimumDistance {
+                filteredResults.append(request)
+                println("distance is \(distanceBetweenTwoPoints) with object ID \(objectID)")
+            }
+        }
+        return filteredResults
+    }
+    
     // Vicky check out https://parse.com/docs/ios/guide#queries.
     
     // Fetching all records  --> to show in marketplace --> Should show only those which are not marked completed
