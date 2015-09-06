@@ -17,18 +17,19 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var marketPlaceTableView: UITableView!
     // This is a hack 
-//    var clock: NSTimer?
+    var clock: NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         marketPlaceTableView.delegate = self
         marketPlaceTableView.dataSource = self
        
-//        self.clock = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "refreshListOfRequests", userInfo: nil, repeats: true)
+        self.clock = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "refreshListOfRequests", userInfo: nil, repeats: true)
         self.refreshListOfRequests()
 
         // Do any additional setup after loading the view.
         
+//        println("tabledatasource is \(self.tableDataSource)")
     }
 
 
@@ -60,7 +61,7 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableV
         // Configure the cell...
         cell.textLabel!.numberOfLines = 0
         
-        if cell.fromAddressLabel != nil {
+        if cell.deliverFromLabel != nil {
             
         } else {
             
@@ -97,7 +98,7 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableV
             if let _ = response {
                 if let address = response.firstResult() {
                     let lines = address.lines as! [String]
-                    cell.fromAddressLabel.text = lines.last
+                    cell.deliverFromLabel.text = "\n".join(lines)
                 }
             }
         }
@@ -114,13 +115,13 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableV
                 if let address = response.firstResult() {
                     let lines = address.lines as! [String]
                     
-                    cell.toAddressLabel.text = "\n".join(lines)
+                    cell.deliverToLabel.text = "\n".join(lines)
                 }
             }
         }
         
-//        let fee = item["cost"] as? CGFloat
-//        cell.deliveryFeeLabel.text = "\(fee)"
+        let fee = item["cost"] as? CGFloat
+        cell.feeLabel.text = "\(fee!)"
     }
     
     
