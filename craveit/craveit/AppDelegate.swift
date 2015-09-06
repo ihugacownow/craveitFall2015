@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                  var storyboard = UIStoryboard(name: "Main", bundle: nil)
                 //window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("logIn") as? UIViewController
                 let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
-                let rootViewController:UIViewController = storyboard.instantiateViewControllerWithIdentifier("mainPage") as! UIViewController
+                let rootViewController:UIViewController = storyboard.instantiateViewControllerWithIdentifier("logIn") as! UIViewController
                 navigationController.viewControllers = [rootViewController]
                 self.window?.rootViewController = navigationController
             }

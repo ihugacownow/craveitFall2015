@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0422F84B2B5451293AFE44E1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC8B5B9C28A65136A9C0094 /* libPods.a */; };
-		180044D31B9B7A7900AF78FC /* loginBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 180044D11B9B7A7900AF78FC /* loginBackground@2x.png */; };
-		180044D41B9B7A7900AF78FC /* loginBackground@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 180044D21B9B7A7900AF78FC /* loginBackground@3x.png */; };
 		180044D61B9B8EF100AF78FC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180044D51B9B8EF100AF78FC /* BaseViewController.swift */; };
 		1823FBA01B9ABE3A00DD78E7 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823FB9F1B9ABE3A00DD78E7 /* ServerManager.swift */; };
 		1823FBA71B9AC95E00DD78E7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823FBA61B9AC95E00DD78E7 /* User.swift */; };
@@ -22,6 +20,11 @@
 		440B8E0A1B9A8523003959C0 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8E091B9A8523003959C0 /* Accounts.framework */; };
 		440B8E0C1B9A852A003959C0 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8E0B1B9A852A003959C0 /* Social.framework */; };
 		440B8E0E1B9A8676003959C0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B8E0D1B9A8676003959C0 /* Bolts.framework */; };
+		44AC706B1B9BD1E600B379E8 /* loginBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC70691B9BD1E600B379E8 /* loginBackground@2x.png */; };
+		44AC706C1B9BD1E600B379E8 /* loginBackground@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC706A1B9BD1E600B379E8 /* loginBackground@3x.png */; };
+		44AC706E1B9BD8B000B379E8 /* 02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44AC706D1B9BD8B000B379E8 /* 02.jpg */; };
+		44AC70701B9BDC7E00B379E8 /* Default_960.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC706F1B9BDC7E00B379E8 /* Default_960.png */; };
+		44AC70721B9BDCE000B379E8 /* Default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC70711B9BDCE000B379E8 /* Default@3x.png */; };
 		44AF47A71B9A704A00E14AF8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AF47A61B9A704A00E14AF8 /* Parse.framework */; };
 		984CA3191B96A49B00575850 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984CA3181B96A49B00575850 /* MainPageViewController.swift */; };
 		984CA31B1B96A4E400575850 /* MarketPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984CA31A1B96A4E400575850 /* MarketPlaceViewController.swift */; };
@@ -67,8 +70,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		180044D11B9B7A7900AF78FC /* loginBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground@2x.png"; sourceTree = "<group>"; };
-		180044D21B9B7A7900AF78FC /* loginBackground@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground@3x.png"; sourceTree = "<group>"; };
 		180044D51B9B8EF100AF78FC /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1823FB9F1B9ABE3A00DD78E7 /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		1823FBA61B9AC95E00DD78E7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -83,6 +84,11 @@
 		440B8E091B9A8523003959C0 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		440B8E0B1B9A852A003959C0 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		440B8E0D1B9A8676003959C0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		44AC70691B9BD1E600B379E8 /* loginBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground@2x.png"; sourceTree = "<group>"; };
+		44AC706A1B9BD1E600B379E8 /* loginBackground@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground@3x.png"; sourceTree = "<group>"; };
+		44AC706D1B9BD8B000B379E8 /* 02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 02.jpg; sourceTree = "<group>"; };
+		44AC706F1B9BDC7E00B379E8 /* Default_960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default_960.png; sourceTree = "<group>"; };
+		44AC70711B9BDCE000B379E8 /* Default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@3x.png"; sourceTree = "<group>"; };
 		44AF47A61B9A704A00E14AF8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		984CA3181B96A49B00575850 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		984CA31A1B96A4E400575850 /* MarketPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketPlaceViewController.swift; sourceTree = "<group>"; };
@@ -167,8 +173,11 @@
 		180044D01B9B7A5100AF78FC /* images */ = {
 			isa = PBXGroup;
 			children = (
-				180044D11B9B7A7900AF78FC /* loginBackground@2x.png */,
-				180044D21B9B7A7900AF78FC /* loginBackground@3x.png */,
+				44AC70711B9BDCE000B379E8 /* Default@3x.png */,
+				44AC706F1B9BDC7E00B379E8 /* Default_960.png */,
+				44AC706D1B9BD8B000B379E8 /* 02.jpg */,
+				44AC70691B9BD1E600B379E8 /* loginBackground@2x.png */,
+				44AC706A1B9BD1E600B379E8 /* loginBackground@3x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -426,10 +435,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				180044D31B9B7A7900AF78FC /* loginBackground@2x.png in Resources */,
+				44AC706B1B9BD1E600B379E8 /* loginBackground@2x.png in Resources */,
+				44AC70721B9BDCE000B379E8 /* Default@3x.png in Resources */,
+				44AC70701B9BDC7E00B379E8 /* Default_960.png in Resources */,
+				44AC706E1B9BD8B000B379E8 /* 02.jpg in Resources */,
 				9899EDD31B969C950077606D /* Main.storyboard in Resources */,
 				9899EDD81B969C950077606D /* LaunchScreen.xib in Resources */,
-				180044D41B9B7A7900AF78FC /* loginBackground@3x.png in Resources */,
+				44AC706C1B9BD1E600B379E8 /* loginBackground@3x.png in Resources */,
 				9899EDD51B969C950077606D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
