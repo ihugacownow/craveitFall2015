@@ -7,107 +7,29 @@
 //
 
 import UIKit
-import Parse
-import GoogleMaps
 
-class RequestDashboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    var tableDataSource = [PFObject]()
-    let serverMan = ServerManager()
-    
-    @IBOutlet weak var requestDashboardTableView: UITableView!
+class RequestDashboardViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if serverMan.fetchOnlyRequestsFromCurrentUser() == nil {
-            tableDataSource = [PFObject]()
-        } else {
-            tableDataSource = serverMan.fetchOnlyRequestsFromCurrentUser()!
-            requestDashboardTableView.reloadData()
-           
-        }
-        
-        
+
+        // Do any additional setup after loading the view.
     }
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // Return the number of sections.
-        return 1
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(
-            "requestCell", forIndexPath: indexPath) as! RequestsDashboardTableViewCell
-        println("cell is \(cell)")
-        
-        
-        // Configure the cell...
-        cell.textLabel!.numberOfLines = 0
-        
-        if cell.deliverFromLabel != nil {
-            
-        } else {
-            
-        }
-        
-        let row = indexPath.row
-        
-        let item = tableDataSource[row]
-        populateCell(cell, item: item)
-        
-        //cost, createdAt, craver, name, startPoint, endPoint
-        //        cell.textLabel!.text = item
-        //        let selectedView = UIView()
-        //        selectedView.backgroundColor = UIColor(red: 241, green: 196, blue: 15)
-        //        cell.selectedBackgroundView = selectedView
-        
-        
-        
-        return cell
-        
-        
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
-    
-    func populateCell(cell: RequestsDashboardTableViewCell, item: PFObject) {
-        let fromGeoPointObject = item["startPoint"] as! PFObject
-        fromGeoPointObject.fetchIfNeeded()
-        let fromGeoPoint = fromGeoPointObject["startLocation"] as! PFGeoPoint
-        let fromPointCoordinates = CLLocationCoordinate2DMake(fromGeoPoint.latitude, fromGeoPoint.longitude)
-        
-        let geocoder = GMSGeocoder()
-        
-        geocoder.reverseGeocodeCoordinate(fromPointCoordinates) { response , error in
-            //Add this line
-            if let _ = response {
-                if let address = response.firstResult() {
-                    let lines = address.lines as! [String]
-                    cell.deliverFromLabel.text = "\n".join(lines)
-                }
-            }
-        }
-        
-        let toGeoPointObject = item["endPoint"] as! PFObject
-        toGeoPointObject.fetchIfNeeded()
-        let toGeoPoint = toGeoPointObject["endPoint"] as! PFGeoPoint
-        let toPointCoordinates = CLLocationCoordinate2DMake(toGeoPoint.latitude, toGeoPoint.longitude)
-        geocoder.reverseGeocodeCoordinate(toPointCoordinates) { response , error in
-            //Add this line
-            if let _ = response {
-                if let address = response.firstResult() {
-                    let lines = address.lines as! [String]
-                    
-                    cell.deliverToLabel.text = "\n".join(lines)
-                }
-            }
-        }
-        
-        }
-    
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println(tableDataSource.count)
-        return tableDataSource.count
-    }
+    */
 
 }

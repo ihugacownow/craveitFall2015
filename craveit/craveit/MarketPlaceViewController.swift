@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import GoogleMaps
 
-class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MarketPlaceViewController: UIViewController, UITableViewDelegate {
     
     var tableDataSource = [PFObject]()
     var serverMan = AppDelegate.Location.ServerMan
@@ -22,7 +22,7 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         marketPlaceTableView.delegate = self
-        marketPlaceTableView.dataSource = self
+        //marketPlaceTableView.dataSource = self
        
         self.clock = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "refreshListOfRequests", userInfo: nil, repeats: true)
         self.refreshListOfRequests()
