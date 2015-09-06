@@ -61,6 +61,7 @@
 		98592DFD1B9B409900438464 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98592DFC1B9B409900438464 /* SuccessViewController.swift */; };
 		98592DFF1B9B8B3E00438464 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98592DFE1B9B8B3E00438464 /* SignUpViewController.swift */; };
 		98592E011B9BA1CB00438464 /* MarketPlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98592E001B9BA1CB00438464 /* MarketPlaceTableViewCell.swift */; };
+		98592E031B9BEE7300438464 /* RequestsDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98592E021B9BEE7300438464 /* RequestsDashboardTableViewCell.swift */; };
 		9899EDCB1B969C950077606D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9899EDCA1B969C950077606D /* AppDelegate.swift */; };
 		9899EDCE1B969C950077606D /* craveit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9899EDCC1B969C950077606D /* craveit.xcdatamodeld */; };
 		9899EDD31B969C950077606D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9899EDD11B969C950077606D /* Main.storyboard */; };
@@ -136,6 +137,7 @@
 		98592DFC1B9B409900438464 /* SuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		98592DFE1B9B8B3E00438464 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		98592E001B9BA1CB00438464 /* MarketPlaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketPlaceTableViewCell.swift; sourceTree = "<group>"; };
+		98592E021B9BEE7300438464 /* RequestsDashboardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsDashboardTableViewCell.swift; sourceTree = "<group>"; };
 		9899EDC51B969C950077606D /* craveit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = craveit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9899EDC91B969C950077606D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9899EDCA1B969C950077606D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				984CA3201B96A55A00575850 /* RequestDashboardViewController.swift */,
 				984CA3261B96A5F500575850 /* RegistrationViewController.swift */,
 				98592DFE1B9B8B3E00438464 /* SignUpViewController.swift */,
+				98592E021B9BEE7300438464 /* RequestsDashboardTableViewCell.swift */,
 			);
 			name = profile;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				984CA31F1B96A53C00575850 /* SignInViewController.swift in Sources */,
 				984CA3191B96A49B00575850 /* MainPageViewController.swift in Sources */,
 				984CA3271B96A5F500575850 /* RegistrationViewController.swift in Sources */,
+				98592E031B9BEE7300438464 /* RequestsDashboardTableViewCell.swift in Sources */,
 				984CA31D1B96A51700575850 /* CreateRequestViewController.swift in Sources */,
 				984CA31B1B96A4E400575850 /* MarketPlaceViewController.swift in Sources */,
 				9899EDCE1B969C950077606D /* craveit.xcdatamodeld in Sources */,
