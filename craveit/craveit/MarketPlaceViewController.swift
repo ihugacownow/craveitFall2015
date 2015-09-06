@@ -70,7 +70,7 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate {
         let row = indexPath.row
         
         let item = tableDataSource[row]
-        //populateCell(cell, item: item)
+        populateCell(cell, item: item)
         
         //cost, createdAt, craver, name, startPoint, endPoint
 //        cell.textLabel!.text = item
@@ -85,34 +85,6 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate {
         
     }
     
-<<<<<<< HEAD
-//    func populateCell(cell: MarketPlaceTableViewCell, item: PFObject) {
-//        let fromGeoPointObject = (item["startPoint"] as! PFObject).fetchIfNeeded()
-//        
-//        if fromGeoPointObject != nil {
-//            let fromGeoPoint: AnyObject? = fromGeoPointObject!["startLocation"]
-//        }
-//
-//        let fromPointCoordinates = CLLocationCoordinate2DMake(fromGeoPoint.latitude, fromGeoPoint.longitude)
-//        let fromAddress = reverseGeocodeCoordinate(fromPointCoordinates)
-//        cell.fromAddressLabel.text = fromAddress
-//        
-//        let toGeoPointObject = item["endPoint"] as! PFObject
-//        
-//        let toGeoPoint = toGeoPointObject["endPoint"] as! PFGeoPoint
-//        
-//        
-//        let toPointCoordinates = CLLocationCoordinate2DMake(toGeoPoint.latitude, toGeoPoint.longitude)
-//        let toAddress = reverseGeocodeCoordinate(toPointCoordinates)
-//        cell.toAddressLabel.text = toAddress
-//        let fee = item["cost"] as? CGFloat
-//        cell.deliveryFeeLabel.text = "\(fee)"
-//    }
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        println(tableDataSource.count)
-//        return tableDataSource.count
-//    }
-=======
     func populateCell(cell: MarketPlaceTableViewCell, item: PFObject) {
         let fromGeoPointObject = item["startPoint"] as! PFObject
         fromGeoPointObject.fetchIfNeeded()
@@ -159,72 +131,5 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate {
     }
     
         
-//        let row = indexPath.row
-//        selectedRow = row
-//        let item = matchingAddresses[row]
-//        println(item)
-//        destinationFormattedAddress = item
-//        destinationLatitude = self.mapTasks.fetchedAddressLatitudeList[row]
-//        // println("\(destinationLatitude)")
-//        destinationLongitude = self.mapTasks.fetchedAddressLongitudeList[row]
-        
-    }
-    
-//    func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) {
-//        let geocoder = GMSGeocoder()
-//        var isQueryDone = false
-//        geocoder.reverseGeocodeCoordinate(coordinate) { response , error in
-//            
-//            //Add this line
-//            if let _ = response {
-//                if let address = response.firstResult() {
-//                    let lines = address.lines as! [String]
-//                    
-//                    textAddress = "\n".join(lines)
-//                    isQueryDone = true
-//                }
-//            }
-//        }
-//        if isQueryDone {
-//            return textAddress
-//        }
-//        return textAddress
-//    }
-    
-//    func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) -> String {
-//        var textAddress: String = ""
-//        let geocoder = GMSGeocoder()
-//        var isQueryDone = false
-//        geocoder.reverseGeocodeCoordinate(coordinate) { response , error in
-//            
-//            //Add this line
-//            if let _ = response {
-//                if let address = response.firstResult() {
-//                    let lines = address.lines as! [String]
-//                    
-//                    textAddress = "\n".join(lines)
-//                    isQueryDone = true
-//                }
-//            }
-//        }
-//        if isQueryDone {
-//            return textAddress
-//        }
-//        return textAddress
-//    }
-
-  
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+    
