@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rWG-qO-H9L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rWG-qO-H9L">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -368,14 +368,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake Shack" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNa-KA-ijh">
-                                <rect key="frame" x="62" y="74" width="100" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake Shack" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNa-KA-ijh">
+                                <rect key="frame" x="62" y="74" width="522" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="568" id="NcS-tx-VuT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="NcS-tx-VuT"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hill College House" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgW-gn-Rja">
-                                <rect key="frame" x="62" y="132" width="140" height="20"/>
+                                <rect key="frame" x="62" y="132" width="522" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -392,17 +400,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wdo-Iz-siO">
-                                <rect key="frame" x="16" y="200" width="568" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="cdg-Kp-Gip"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="resignResponder:" destination="uQa-y2-FJN" eventType="editingDidEndOnExit" id="ZO2-ag-itR"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qUz-Tb-ke8">
                                 <rect key="frame" x="16" y="266" width="568" height="30"/>
                                 <constraints>
@@ -449,6 +446,17 @@
                                     <action selector="submitRequest:" destination="uQa-y2-FJN" eventType="touchUpInside" id="1JW-1T-M8n"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wdo-Iz-siO">
+                                <rect key="frame" x="16" y="200" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cdg-Kp-Gip"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="resignResponder:" destination="uQa-y2-FJN" eventType="editingDidEndOnExit" id="ZO2-ag-itR"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -471,8 +479,10 @@
                             <constraint firstItem="Oih-mG-h4R" firstAttribute="leading" secondItem="ac8-la-xcr" secondAttribute="trailing" constant="8" symbolic="YES" id="Ntg-mg-xNM"/>
                             <constraint firstItem="Oih-mG-h4R" firstAttribute="centerY" secondItem="ac8-la-xcr" secondAttribute="centerY" id="QKC-jE-4Gi"/>
                             <constraint firstItem="dg6-cs-EUb" firstAttribute="top" secondItem="bgW-gn-Rja" secondAttribute="bottom" constant="35" id="RxY-LO-EAa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bNa-KA-ijh" secondAttribute="trailing" id="Sbs-q7-Jqe"/>
                             <constraint firstItem="8fl-Ox-awB" firstAttribute="top" secondItem="bNa-KA-ijh" secondAttribute="bottom" constant="507" id="Sd5-Yb-MZ7"/>
                             <constraint firstItem="bgW-gn-Rja" firstAttribute="leading" secondItem="bNa-KA-ijh" secondAttribute="leading" id="TXO-0r-5h9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bgW-gn-Rja" secondAttribute="trailing" id="UEQ-TC-fSp"/>
                             <constraint firstItem="qUz-Tb-ke8" firstAttribute="top" secondItem="OIZ-Fe-F17" secondAttribute="bottom" constant="8" symbolic="YES" id="XYd-RR-KNC"/>
                             <constraint firstItem="bNa-KA-ijh" firstAttribute="top" secondItem="6Gf-a0-ruf" secondAttribute="bottom" constant="8" symbolic="YES" id="Yz8-Vz-JzK"/>
                             <constraint firstAttribute="bottom" secondItem="A0G-FX-LQK" secondAttribute="bottom" constant="20" symbolic="YES" id="bOG-BG-CPX"/>
@@ -497,6 +507,7 @@
                             <mask key="constraints">
                                 <exclude reference="Yz8-Vz-JzK"/>
                                 <exclude reference="bWV-kF-7FM"/>
+                                <exclude reference="hIS-97-5ny"/>
                                 <exclude reference="ien-z3-8s5"/>
                                 <exclude reference="2hT-wU-xui"/>
                                 <exclude reference="kpf-IF-esn"/>
@@ -1387,7 +1398,8 @@
         <image name="tofrom_spaced.png" width="236" height="496"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GWa-4M-CAS"/>
+        <segue reference="Xcn-72-ARy"/>
         <segue reference="fa3-59-QjE"/>
+        <segue reference="GWa-4M-CAS"/>
     </inferredMetricsTieBreakers>
 </document>

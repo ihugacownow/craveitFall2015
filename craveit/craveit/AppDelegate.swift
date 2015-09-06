@@ -55,24 +55,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             
             if Location.currentUser != nil {
                 println("User name is \(Location.currentUser!.username)")
-//                  var storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                
-//                window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("mainPage") as? UIViewController
-//                let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
-//                let rootViewController:UIViewController = storyboard.instantiateViewControllerWithIdentifier("mainPage") as! UIViewController
-//                navigationController.viewControllers = [rootViewController]
-//                self.window?.rootViewController = navigationController
+                  var storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("mainPage") as? UIViewController
+                let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+                let rootViewController:UIViewController = storyboard.instantiateViewControllerWithIdentifier("mainPage") as! UIViewController
+                navigationController.viewControllers = [rootViewController]
+                self.window?.rootViewController = navigationController
                 
             } else {
                 // Akash show the signup or login screen
-//                 var storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                //window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("logIn") as? UIViewController
-//                let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
-//                let rootViewController:UIViewController = storyboard.instantiateViewControllerWithIdentifier("logIn") as! UIViewController
-//                navigationController.viewControllers = [rootViewController]
-//                self.window?.rootViewController = navigationController
+                 var storyboard = UIStoryboard(name: "Main", bundle: nil)
+                //window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("logIn") as? UIViewController
+                let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+                let rootViewController:UIViewController = storyboard.instantiateViewControllerWithIdentifier("logIn") as! UIViewController
+                navigationController.viewControllers = [rootViewController]
+                self.window?.rootViewController = navigationController
             }
-            //self.window?.makeKeyAndVisible()
+            self.window?.makeKeyAndVisible()
             
             return true
     }
