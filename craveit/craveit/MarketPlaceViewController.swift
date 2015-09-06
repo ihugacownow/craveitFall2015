@@ -55,15 +55,16 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCellWithIdentifier(
             "marketPlaceCell", forIndexPath: indexPath) as! MarketPlaceTableViewCell
         println("cell is \(cell)")
-//        if (cell == nil) {
-//            //tableView.registerNib(UINib(nibName: "UICustomTableViewCell", bundle: nil), forCellReuseIdentifier: "UICustomTableViewCell")
-////            tableView.registerClass(MyCell.classForCoder(), forCellReuseIdentifier: "marketPlaceCell")
-//            
-//            cell = MarketPlaceTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "marketPlaceCell")
-//        }
+        
+
         // Configure the cell...
-        cell.textLabel!.font = UIFont.systemFontOfSize(14)
         cell.textLabel!.numberOfLines = 0
+        
+        if cell.fromAddressLabel != nil {
+            
+        } else {
+            
+        }
         
         let row = indexPath.row
         
@@ -84,27 +85,45 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func populateCell(cell: MarketPlaceTableViewCell, item: PFObject) {
-        let fromGeoPointObject = (item["startPoint"] as! PFObject).fetchIfNeeded()
-        
-        if fromGeoPointObject != nil {
-            let fromGeoPoint: AnyObject? = fromGeoPointObject!["startLocation"]
-        }
-
+        let fromGeoPointObject = item["startPoint"] as! PFObject
+        fromGeoPointObject.fetchIfNeeded()
+        let fromGeoPoint = fromGeoPointObject["startLocation"] as! PFGeoPoint
         let fromPointCoordinates = CLLocationCoordinate2DMake(fromGeoPoint.latitude, fromGeoPoint.longitude)
-        let fromAddress = reverseGeocodeCoordinate(fromPointCoordinates)
-        cell.fromAddressLabel.text = fromAddress
+        
+        let geocoder = GMSGeocoder()
+        
+        geocoder.reverseGeocodeCoordinate(fromPointCoordinates) { response , error in
+            //Add this line
+            if let _ = response {
+                if let address = response.firstResult() {
+                    let lines = address.lines as! [String]
+                    cell.fromAddressLabel.text = lines.last
+                }
+            }
+        }
+       
+        
         
         let toGeoPointObject = item["endPoint"] as! PFObject
-        
+        toGeoPointObject.fetchIfNeeded()
         let toGeoPoint = toGeoPointObject["endPoint"] as! PFGeoPoint
-        
-        
         let toPointCoordinates = CLLocationCoordinate2DMake(toGeoPoint.latitude, toGeoPoint.longitude)
-        let toAddress = reverseGeocodeCoordinate(toPointCoordinates)
-        cell.toAddressLabel.text = toAddress
-        let fee = item["cost"] as? CGFloat
-        cell.deliveryFeeLabel.text = "\(fee)"
+        geocoder.reverseGeocodeCoordinate(toPointCoordinates) { response , error in
+            //Add this line
+            if let _ = response {
+                if let address = response.firstResult() {
+                    let lines = address.lines as! [String]
+                    
+                    cell.toAddressLabel.text = "\n".join(lines)
+                }
+            }
+        }
+        
+//        let fee = item["cost"] as? CGFloat
+//        cell.deliveryFeeLabel.text = "\(fee)"
     }
+    
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         println(tableDataSource.count)
         return tableDataSource.count
@@ -123,24 +142,48 @@ class MarketPlaceViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
-    func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) -> String {
-        var textAddress: String = ""
-        let geocoder = GMSGeocoder()
-        geocoder.reverseGeocodeCoordinate(coordinate) { response , error in
-            
-            //Add this line
-            if let _ = response {
-                if let address = response.firstResult() {
-                    let lines = address.lines as! [String]
-                    
-                    textAddress = lines.first!
-                }
-            }
-            
-            
-        }
-        return textAddress
-    }
+//    func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) {
+//        let geocoder = GMSGeocoder()
+//        var isQueryDone = false
+//        geocoder.reverseGeocodeCoordinate(coordinate) { response , error in
+//            
+//            //Add this line
+//            if let _ = response {
+//                if let address = response.firstResult() {
+//                    let lines = address.lines as! [String]
+//                    
+//                    textAddress = "\n".join(lines)
+//                    isQueryDone = true
+//                }
+//            }
+//        }
+//        if isQueryDone {
+//            return textAddress
+//        }
+//        return textAddress
+//    }
+    
+//    func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) -> String {
+//        var textAddress: String = ""
+//        let geocoder = GMSGeocoder()
+//        var isQueryDone = false
+//        geocoder.reverseGeocodeCoordinate(coordinate) { response , error in
+//            
+//            //Add this line
+//            if let _ = response {
+//                if let address = response.firstResult() {
+//                    let lines = address.lines as! [String]
+//                    
+//                    textAddress = "\n".join(lines)
+//                    isQueryDone = true
+//                }
+//            }
+//        }
+//        if isQueryDone {
+//            return textAddress
+//        }
+//        return textAddress
+//    }
 
   
     

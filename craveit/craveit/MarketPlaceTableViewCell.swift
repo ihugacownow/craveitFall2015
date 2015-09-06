@@ -16,4 +16,10 @@ class MarketPlaceTableViewCell: UITableViewCell
     @IBOutlet weak var toAddressLabel: UILabel!
     
     @IBOutlet weak var deliveryFeeLabel: UILabel!
+    
+//    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+//        super.init(style, reuseIdentifier)
+//        
+//    }
+    
 }
