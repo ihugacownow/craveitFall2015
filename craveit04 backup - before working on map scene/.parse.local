@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "CraveIt": {
+      "applicationId": "iNoTiRs00J5w5QLHo8pEvfCOy2gjMdhCNWRhkVHG"
+    },
+    "_default": {
+      "link": "CraveIt"
+    }
+  }
+}
